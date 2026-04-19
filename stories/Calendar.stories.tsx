@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar } from '../src/Calendar';
-import { type Meta } from '@storybook/react';
+import { type Meta } from '@storybook/react-vite';
 
 const meta: Meta<typeof Calendar> = {
   component: Calendar,

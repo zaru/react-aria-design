@@ -1,6 +1,6 @@
 import {MyToastRegion, queue} from '../src/Toast';
 import {Button} from '../src/Button';
-import {type Meta, type StoryObj} from '@storybook/react';
+import {type Meta, type StoryObj} from '@storybook/react-vite';
 import React from 'react';
 
 interface ToastStoryArgs {

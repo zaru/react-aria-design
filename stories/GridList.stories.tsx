@@ -1,4 +1,4 @@
-import { type Meta } from '@storybook/react';
+import { type Meta } from '@storybook/react-vite';
 import { GridList, GridListHeader, GridListItem} from '../src/GridList';
 import { GridListSection } from 'react-aria-components/GridList';
 import React from 'react';
