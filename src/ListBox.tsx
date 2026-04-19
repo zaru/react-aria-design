@@ -26,7 +26,14 @@ export function ListBox<T extends object>({
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        "outline-0 p-1 w-[200px] bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans",
+        "font-sans outline-0 p-1.5 w-[200px] text-glass-900 dark:text-glass-50 bg-clip-padding " +
+          "rounded-[1.5rem] [corner-shape:squircle] " +
+          "ring-1 ring-black/8 dark:ring-white/12 " +
+          "shadow-[0_2px_6px_-2px_rgba(15,23,42,0.1),0_14px_34px_-10px_rgba(15,23,42,0.18),0_36px_72px_-22px_rgba(15,23,42,0.26),inset_0_1px_0_rgba(255,255,255,0.78),inset_1px_0_0_rgba(255,255,255,0.42),inset_-1px_0_0_rgba(255,255,255,0.2),inset_0_-1px_0_rgba(15,23,42,0.06)] " +
+          "dark:shadow-[0_2px_6px_-2px_rgba(0,0,0,0.5),0_16px_36px_-12px_rgba(0,0,0,0.55),0_40px_80px_-26px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.22),inset_1px_0_0_rgba(255,255,255,0.1),inset_-1px_0_0_rgba(255,255,255,0.05),inset_0_-1px_0_rgba(0,0,0,0.3)] " +
+          "bg-linear-to-br from-white/78 via-white/48 to-white/32 backdrop-blur-2xl backdrop-saturate-[1.6] " +
+          "dark:bg-linear-to-br dark:from-glass-800/74 dark:via-glass-900/56 dark:to-glass-950/50 " +
+          "forced-colors:bg-[Canvas] forced-colors:ring-[ButtonBorder]",
       )}
     >
       {children}
@@ -36,15 +43,25 @@ export function ListBox<T extends object>({
 
 export const itemStyles = tv({
   extend: focusRing,
-  base: "group relative flex items-center gap-8 cursor-default select-none py-1.5 px-2.5 rounded-md will-change-transform text-sm forced-color-adjust-none",
+  base:
+    "group relative flex items-center gap-8 cursor-default select-none py-2 px-3 " +
+    "rounded-xl [corner-shape:squircle] will-change-transform text-sm forced-color-adjust-none " +
+    "transition-[background-color,box-shadow,color] duration-150 ease-out",
   variants: {
     isSelected: {
       false:
-        "text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 pressed:bg-neutral-100 dark:hover:bg-neutral-800 dark:pressed:bg-neutral-800 -outline-offset-2",
-      true: "bg-blue-600 text-white forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] [&:has(+[data-selected])]:rounded-b-none [&+[data-selected]]:rounded-t-none -outline-offset-4 outline-white dark:outline-white forced-colors:outline-[HighlightText]",
+        "text-glass-800 dark:text-glass-100 hover:bg-white/55 pressed:bg-white/68 dark:hover:bg-glass-800/55 dark:pressed:bg-glass-800/68 -outline-offset-2",
+      true:
+        "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 " +
+        "shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] " +
+        "dark:from-glow-500/88 dark:to-glow-600/92 " +
+        "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] " +
+        "forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] " +
+        "[&:has(+[data-selected])]:rounded-b-none [&+[data-selected]]:rounded-t-none " +
+        "-outline-offset-4 outline-white dark:outline-white forced-colors:outline-[HighlightText]",
     },
     isDisabled: {
-      true: "text-neutral-300 dark:text-neutral-600 forced-colors:text-[GrayText]",
+      true: "text-glass-400 dark:text-glass-600 forced-colors:text-[GrayText]",
     },
   },
 });
@@ -58,7 +75,7 @@ export function ListBoxItem(props: ListBoxItemProps) {
       {composeRenderProps(props.children, (children) => (
         <>
           {children}
-          <div className="absolute left-4 right-4 bottom-0 h-px bg-white/20 forced-colors:bg-[HighlightText] hidden [.group[data-selected]:has(+[data-selected])_&]:block" />
+          <div className="absolute left-4 right-4 bottom-0 h-px bg-white/25 forced-colors:bg-[HighlightText] hidden [.group[data-selected]:has(+[data-selected])_&]:block" />
         </>
       ))}
     </AriaListBoxItem>
@@ -66,24 +83,33 @@ export function ListBoxItem(props: ListBoxItemProps) {
 }
 
 export const dropdownItemStyles = tv({
-  base: "group flex items-center gap-4 cursor-default select-none py-2 pl-3 pr-3 selected:pr-1 rounded-lg outline outline-0 text-sm forced-color-adjust-none no-underline [&[href]]:cursor-pointer [-webkit-tap-highlight-color:transparent]",
+  base:
+    "group flex items-center gap-4 cursor-default select-none py-2 pl-3 pr-3 selected:pr-1 " +
+    "rounded-xl [corner-shape:squircle] outline-0 text-sm forced-color-adjust-none no-underline " +
+    "[&[href]]:cursor-pointer [-webkit-tap-highlight-color:transparent] " +
+    "transition-[background-color,color,box-shadow] duration-150 ease-out",
   variants: {
     isDisabled: {
-      false: "text-neutral-900 dark:text-neutral-100",
-      true: "text-neutral-300 dark:text-neutral-600 forced-colors:text-[GrayText]",
+      false: "text-glass-900 dark:text-glass-50",
+      true: "text-glass-400 dark:text-glass-600 forced-colors:text-[GrayText]",
     },
     isPressed: {
-      true: "bg-neutral-100 dark:bg-neutral-800",
+      true: "bg-white/60 dark:bg-glass-800/60",
     },
     isFocused: {
-      true: "bg-blue-600 dark:bg-blue-600 text-white forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
+      true:
+        "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 " +
+        "shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] " +
+        "dark:from-glow-500/88 dark:to-glow-600/92 " +
+        "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] " +
+        "forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
     },
   },
   compoundVariants: [
     {
       isFocused: false,
       isOpen: true,
-      className: "bg-neutral-100 dark:bg-neutral-700/60",
+      className: "bg-white/50 dark:bg-glass-800/55",
     },
   ],
 });
@@ -122,7 +148,7 @@ export function DropdownSection<T extends object>(
 ) {
   return (
     <ListBoxSection className="first:-mt-[5px] after:content-[''] after:block after:h-[5px] last:after:hidden">
-      <Header className="text-sm font-semibold text-neutral-500 dark:text-neutral-300 px-4 py-1 truncate sticky -top-[5px] -mt-px -mx-1 z-10 bg-neutral-100/60 dark:bg-neutral-700/60 backdrop-blur-md supports-[-moz-appearance:none]:bg-neutral-100 border-y border-y-neutral-200 dark:border-y-neutral-700 [&+*]:mt-1">
+      <Header className="font-sans text-xs font-semibold tracking-wider uppercase text-glass-600 dark:text-glass-300 px-3 py-1.5 truncate sticky -top-[5px] -mt-px -mx-1.5 z-10 bg-white/45 dark:bg-glass-900/45 backdrop-blur-lg backdrop-saturate-[1.4] border-y border-black/5 dark:border-white/8 [&+*]:mt-1">
         {props.title}
       </Header>
       <Collection items={props.items}>{props.children}</Collection>
