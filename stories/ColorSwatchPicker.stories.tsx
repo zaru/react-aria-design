@@ -1,13 +1,15 @@
-import { type Meta } from '@storybook/react-vite';
-import React from 'react';
-import { ColorSwatchPicker, ColorSwatchPickerItem } from '../src/ColorSwatchPicker';
+import type { Meta } from "@storybook/react-vite";
+import {
+  ColorSwatchPicker,
+  ColorSwatchPickerItem,
+} from "../src/ColorSwatchPicker";
 
 const meta: Meta<typeof ColorSwatchPicker> = {
   component: ColorSwatchPicker,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -1,22 +1,21 @@
-import { type Meta } from '@storybook/react-vite';
-import { GridList, GridListHeader, GridListItem} from '../src/GridList';
-import { GridListSection } from 'react-aria-components/GridList';
-import React from 'react';
+import type { Meta } from "@storybook/react-vite";
+import { GridListSection } from "react-aria-components/GridList";
+import { GridList, GridListHeader, GridListItem } from "../src/GridList";
 
 const meta: Meta<typeof GridList> = {
   component: GridList,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
   argTypes: {
     keyboardNavigationBehavior: {
       control: {
-        type: 'radio'
+        type: "radio",
       },
-      options: ['arrow', 'tab']
-    }
+      options: ["arrow", "tab"],
+    },
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -32,8 +31,8 @@ export const Example = (args: any) => (
 
 Example.args = {
   onAction: null,
-  selectionMode: 'multiple',
-  keyboardNavigationBehavior: 'arrow'
+  selectionMode: "multiple",
+  keyboardNavigationBehavior: "arrow",
 };
 
 export const Horizontal = (args: any) => (
@@ -46,13 +45,13 @@ export const Horizontal = (args: any) => (
 );
 
 Horizontal.args = {
-  ...Example.args
+  ...Example.args,
 };
 
 export const DisabledItems = (args: any) => <Example {...args} />;
 DisabledItems.args = {
   ...Example.args,
-  disabledKeys: ['mint']
+  disabledKeys: ["mint"],
 };
 
 export const Sections = (args: any) => (
@@ -76,5 +75,5 @@ export const Sections = (args: any) => (
 
 Sections.args = {
   onAction: null,
-  selectionMode: 'multiple'
+  selectionMode: "multiple",
 };

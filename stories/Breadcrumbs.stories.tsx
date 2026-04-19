@@ -1,13 +1,12 @@
-import React from 'react';
-import { Breadcrumb, Breadcrumbs } from '../src/Breadcrumbs';
-import { type Meta } from '@storybook/react-vite';
+import type { Meta } from "@storybook/react-vite";
+import { Breadcrumb, Breadcrumbs } from "../src/Breadcrumbs";
 
 const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

@@ -1,13 +1,12 @@
-import { type Meta } from '@storybook/react-vite';
-import React from 'react';
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../src/Tabs';
+import type { Meta } from "@storybook/react-vite";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../src/Tabs";
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -23,12 +22,8 @@ export const Example = (args: any) => (
       <TabPanel id="FoR">
         Arma virumque cano, Troiae qui primus ab oris.
       </TabPanel>
-      <TabPanel id="MaR">
-        Senatus Populusque Romanus.
-      </TabPanel>
-      <TabPanel id="Emp">
-        Alea jacta est.
-      </TabPanel>
+      <TabPanel id="MaR">Senatus Populusque Romanus.</TabPanel>
+      <TabPanel id="Emp">Alea jacta est.</TabPanel>
     </TabPanels>
   </Tabs>
 );

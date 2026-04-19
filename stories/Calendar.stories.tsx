@@ -1,13 +1,12 @@
-import React from 'react';
-import { Calendar } from '../src/Calendar';
-import { type Meta } from '@storybook/react-vite';
+import type { Meta } from "@storybook/react-vite";
+import { Calendar } from "../src/Calendar";
 
 const meta: Meta<typeof Calendar> = {
   component: Calendar,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

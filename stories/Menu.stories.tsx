@@ -1,15 +1,21 @@
-import { type Meta } from '@storybook/react-vite';
-import { MoreHorizontal } from 'lucide-react';
-import React from 'react';
-import { Button } from '../src/Button';
-import { MenuTrigger, SubmenuTrigger, Menu, MenuItem, MenuSection, MenuSeparator } from '../src/Menu';
+import type { Meta } from "@storybook/react-vite";
+import { MoreHorizontal } from "lucide-react";
+import { Button } from "../src/Button";
+import {
+  Menu,
+  MenuItem,
+  MenuSection,
+  MenuSeparator,
+  MenuTrigger,
+  SubmenuTrigger,
+} from "../src/Menu";
 
 const meta: Meta<typeof Menu> = {
   component: Menu,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -33,7 +39,7 @@ export const Example = (args: any) => (
 
 export const DisabledItems = (args: any) => <Example {...args} />;
 DisabledItems.args = {
-  disabledKeys: ['save']
+  disabledKeys: ["save"],
 };
 
 export const Sections = (args: any) => (

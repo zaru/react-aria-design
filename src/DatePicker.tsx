@@ -1,18 +1,17 @@
-'use client';
-import { CalendarIcon } from 'lucide-react';
-import React from 'react';
+"use client";
+import { CalendarIcon } from "lucide-react";
 import {
   DatePicker as AriaDatePicker,
   type DatePickerProps as AriaDatePickerProps,
   type DateValue,
   type ValidationResult,
-} from 'react-aria-components/DatePicker';
-import { Calendar } from './Calendar';
-import { DateInput } from './DateField';
-import { Description, FieldError, FieldGroup, Label } from './Field';
-import { Popover } from './Popover';
-import { composeTailwindRenderProps } from './utils';
-import { FieldButton } from './FieldButton';
+} from "react-aria-components/DatePicker";
+import { Calendar } from "./Calendar";
+import { DateInput } from "./DateField";
+import { Description, FieldError, FieldGroup, Label } from "./Field";
+import { FieldButton } from "./FieldButton";
+import { Popover } from "./Popover";
+import { composeTailwindRenderProps } from "./utils";
 
 export interface DatePickerProps<T extends DateValue>
   extends AriaDatePickerProps<T> {
@@ -21,11 +20,20 @@ export interface DatePickerProps<T extends DateValue>
   errorMessage?: string | ((validation: ValidationResult) => string);
 }
 
-export function DatePicker<T extends DateValue>(
-  { label, description, errorMessage, ...props }: DatePickerProps<T>
-) {
+export function DatePicker<T extends DateValue>({
+  label,
+  description,
+  errorMessage,
+  ...props
+}: DatePickerProps<T>) {
   return (
-    <AriaDatePicker {...props} className={composeTailwindRenderProps(props.className, 'group flex flex-col gap-1 font-sans')}>
+    <AriaDatePicker
+      {...props}
+      className={composeTailwindRenderProps(
+        props.className,
+        "group flex flex-col gap-1 font-sans",
+      )}
+    >
       {label && <Label>{label}</Label>}
       <FieldGroup className="min-w-[208px] w-auto cursor-text disabled:cursor-default">
         <DateInput className="flex-1 min-w-[150px] px-3 text-sm" />

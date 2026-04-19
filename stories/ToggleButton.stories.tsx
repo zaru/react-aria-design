@@ -1,15 +1,16 @@
-import { type Meta } from '@storybook/react-vite';
-import React from 'react';
-import { ToggleButton } from '../src/ToggleButton';
+import type { Meta } from "@storybook/react-vite";
+import { ToggleButton } from "../src/ToggleButton";
 
 const meta: Meta<typeof ToggleButton> = {
   component: ToggleButton,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
 
-export const Example = (args: any) => <ToggleButton {...args}>Pin</ToggleButton>;
+export const Example = (args: any) => (
+  <ToggleButton {...args}>Pin</ToggleButton>
+);

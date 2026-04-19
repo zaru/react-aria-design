@@ -1,18 +1,17 @@
-import { type Meta } from "@storybook/react-vite";
-import React from "react";
+import type { Meta } from "@storybook/react-vite";
 import {
   Disclosure,
   DisclosureHeader,
-  DisclosurePanel
+  DisclosurePanel,
 } from "../src/Disclosure";
 import { DisclosureGroup } from "../src/DisclosureGroup";
 
 const meta: Meta<typeof DisclosureGroup> = {
   component: DisclosureGroup,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -33,4 +32,3 @@ export const Example = (args: any) => (
     </Disclosure>
   </DisclosureGroup>
 );
-

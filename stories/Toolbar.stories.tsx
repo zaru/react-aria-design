@@ -1,19 +1,18 @@
-import { BoldIcon, ItalicIcon, UnderlineIcon } from 'lucide-react';
-import React from 'react';
-import { Group } from 'react-aria-components/Group';
-import { Button } from '../src/Button';
-import { Checkbox } from '../src/Checkbox';
-import { Separator } from '../src/Separator';
-import { ToggleButton } from '../src/ToggleButton';
-import { Toolbar } from '../src/Toolbar';
-import { type Meta } from '@storybook/react-vite';
+import type { Meta } from "@storybook/react-vite";
+import { BoldIcon, ItalicIcon, UnderlineIcon } from "lucide-react";
+import { Group } from "react-aria-components/Group";
+import { Button } from "../src/Button";
+import { Checkbox } from "../src/Checkbox";
+import { Separator } from "../src/Separator";
+import { ToggleButton } from "../src/ToggleButton";
+import { Toolbar } from "../src/Toolbar";
 
 const meta: Meta<typeof Toolbar> = {
   component: Toolbar,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -31,13 +30,17 @@ export const Example = (args: any) => (
         <UnderlineIcon className="w-4 h-4" />
       </ToggleButton>
     </Group>
-    <Separator orientation={args.orientation === 'vertical' ? 'horizontal' : 'vertical'} />
+    <Separator
+      orientation={args.orientation === "vertical" ? "horizontal" : "vertical"}
+    />
     <Group aria-label="Clipboard" className="contents">
       <Button variant="secondary">Copy</Button>
       <Button variant="secondary">Paste</Button>
       <Button variant="secondary">Cut</Button>
     </Group>
-    <Separator orientation={args.orientation === 'vertical' ? 'horizontal' : 'vertical'} />
+    <Separator
+      orientation={args.orientation === "vertical" ? "horizontal" : "vertical"}
+    />
     <Checkbox>Night Mode</Checkbox>
   </Toolbar>
 );

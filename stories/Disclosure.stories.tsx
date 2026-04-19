@@ -1,5 +1,4 @@
-import { type Meta } from "@storybook/react-vite";
-import React from "react";
+import type { Meta } from "@storybook/react-vite";
 import {
   Disclosure,
   DisclosureHeader,
@@ -9,9 +8,9 @@ import {
 const meta: Meta<typeof Disclosure> = {
   component: Disclosure,
   parameters: {
-    layout: 'centered'
+    layout: "centered",
   },
-  tags: ['autodocs']
+  tags: ["autodocs"],
 };
 
 export default meta;

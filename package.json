@@ -6,6 +6,7 @@
   "packageManager": "pnpm@10.24.0",
   "devDependencies": {
     "@babel/preset-react": "^7.24.1",
+    "@biomejs/biome": "2.4.12",
     "@storybook/addon-docs": "^10.3.5",
     "@storybook/react-vite": "^10.3.5",
     "@tailwindcss/postcss": "^4.0.0",
@@ -24,7 +25,8 @@
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "lint:fix": "biome check --write --unsafe ."
   },
   "dependencies": {
     "lucide-react": "^1.8.0",

@@ -1,39 +1,43 @@
-'use client';
+"use client";
+import { useEffect } from "react";
 import {
   Autocomplete as AriaAutocomplete,
   type AutocompleteProps as AriaAutocompleteProps,
   useFilter,
-} from 'react-aria-components/Autocomplete';
-import { type MenuProps as AriaMenuProps } from 'react-aria-components/Menu';
-import { Dialog } from 'react-aria-components/Dialog';
-import {Menu} from './Menu';
-import {SearchField} from './SearchField';
-import {Modal} from './Modal';
-import React, {useEffect} from 'react';
+} from "react-aria-components/Autocomplete";
+import { Dialog } from "react-aria-components/Dialog";
+import type { MenuProps as AriaMenuProps } from "react-aria-components/Menu";
+import { Menu } from "./Menu";
+import { Modal } from "./Modal";
+import { SearchField } from "./SearchField";
 
-export interface CommandPaletteProps<T extends object> extends Omit<AriaAutocompleteProps, 'children'>, AriaMenuProps<T> {
-  isOpen: boolean,
-  onOpenChange: (isOpen?: boolean) => void
+export interface CommandPaletteProps<T extends object>
+  extends Omit<AriaAutocompleteProps, "children">,
+    AriaMenuProps<T> {
+  isOpen: boolean;
+  onOpenChange: (isOpen?: boolean) => void;
 }
 
-export function CommandPalette<T extends object>(props: CommandPaletteProps<T>) {
-  let {isOpen, onOpenChange} = props;
-  let {contains} = useFilter({sensitivity: 'base'});
+export function CommandPalette<T extends object>(
+  props: CommandPaletteProps<T>,
+) {
+  const { isOpen, onOpenChange } = props;
+  const { contains } = useFilter({ sensitivity: "base" });
 
   useEffect(() => {
-    let isMacUA = /mac(os|intosh)/i.test(navigator.userAgent);
+    const isMacUA = /mac(os|intosh)/i.test(navigator.userAgent);
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'j' && (isMacUA ? e.metaKey : e.ctrlKey)) {
+      if (e.key === "j" && (isMacUA ? e.metaKey : e.ctrlKey)) {
         e.preventDefault();
         onOpenChange(true);
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         e.preventDefault();
         onOpenChange(false);
       }
     };
 
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [onOpenChange]);
 
   return (
@@ -44,11 +48,13 @@ export function CommandPalette<T extends object>(props: CommandPaletteProps<T>) 
             autoFocus
             aria-label="Search commands"
             placeholder="Search commands"
-            className="m-2" />
+            className="m-2"
+          />
           <Menu
             {...props}
             className="flex-1 min-h-0"
-            renderEmptyState={() => 'No results found.'} />
+            renderEmptyState={() => "No results found."}
+          />
         </AriaAutocomplete>
       </Dialog>
     </Modal>

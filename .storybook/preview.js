@@ -1,5 +1,5 @@
 import { themes } from "storybook/theming";
-import '../src/index.css';
+import "../src/index.css";
 
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
@@ -8,8 +8,10 @@ const preview = {
       matchers: {},
     },
     docs: {
-      theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? themes.dark : themes.light
-    }
+      theme: window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? themes.dark
+        : themes.light,
+    },
   },
 };
 

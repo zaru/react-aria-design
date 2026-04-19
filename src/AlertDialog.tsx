@@ -1,19 +1,19 @@
-'use client';
+"use client";
 import { AlertCircleIcon, InfoIcon } from "lucide-react";
-import React, { type ReactNode } from "react";
-import { chain } from 'react-aria/chain';
-import { type DialogProps } from 'react-aria-components/Dialog';
-import { Heading } from 'react-aria-components/Heading';
+import type { ReactNode } from "react";
+import { chain } from "react-aria/chain";
+import type { DialogProps } from "react-aria-components/Dialog";
+import { Heading } from "react-aria-components/Heading";
 import { Button } from "./Button";
 import { Dialog } from "./Dialog";
 
-interface AlertDialogProps extends Omit<DialogProps, 'children'> {
-  title: string,
-  children: ReactNode,
-  variant?: 'info' | 'destructive',
-  actionLabel: string,
-  cancelLabel?: string,
-  onAction?: () => void
+interface AlertDialogProps extends Omit<DialogProps, "children"> {
+  title: string;
+  children: ReactNode;
+  variant?: "info" | "destructive";
+  actionLabel: string;
+  cancelLabel?: string;
+  onAction?: () => void;
 }
 
 export function AlertDialog({
@@ -31,25 +31,31 @@ export function AlertDialog({
         <>
           <Heading
             slot="title"
-            className="text-xl font-semibold leading-6 my-0">
+            className="text-xl font-semibold leading-6 my-0"
+          >
             {title}
           </Heading>
-          <div className={`w-6 h-6 absolute right-6 top-6 stroke-2 ${variant === 'destructive' ? 'text-red-500' : 'text-blue-500'}`}>
-            {variant === 'destructive' ? <AlertCircleIcon aria-hidden /> : <InfoIcon aria-hidden />}
+          <div
+            className={`w-6 h-6 absolute right-6 top-6 stroke-2 ${variant === "destructive" ? "text-red-500" : "text-blue-500"}`}
+          >
+            {variant === "destructive" ? (
+              <AlertCircleIcon aria-hidden />
+            ) : (
+              <InfoIcon aria-hidden />
+            )}
           </div>
           <p className="mt-3 text-neutral-500 dark:text-neutral-400">
             {children}
           </p>
           <div className="mt-6 flex justify-end gap-2">
-            <Button
-              variant="secondary"
-              onPress={close}>
-              {cancelLabel || 'Cancel'}
+            <Button variant="secondary" onPress={close}>
+              {cancelLabel || "Cancel"}
             </Button>
             <Button
-              variant={variant === 'destructive' ? 'destructive' : 'primary'}
+              variant={variant === "destructive" ? "destructive" : "primary"}
               autoFocus
-              onPress={chain(onAction, close)}>
+              onPress={chain(onAction, close)}
+            >
               {actionLabel}
             </Button>
           </div>
