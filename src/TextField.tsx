@@ -8,9 +8,9 @@ import { tv } from "tailwind-variants";
 import { Description, FieldError, Input, Label } from "./Field";
 import { composeTailwindRenderProps } from "./utils";
 
-/** Glassmorphism 向けフォーカスリング（Button と同系統） */
-const glassFocusRing = tv({
-  base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] outline-offset-2",
+/** Liquid Glass：入力はインセットのアウトライン（フォームガイドラインに合わせてオフセットを抑える） */
+const liquidInputFocusRing = tv({
+  base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] -outline-offset-1",
   variants: {
     isFocusVisible: {
       false: "outline-0",
@@ -20,27 +20,29 @@ const glassFocusRing = tv({
 });
 
 const inputStyles = tv({
-  extend: glassFocusRing,
+  extend: liquidInputFocusRing,
   base: [
-    "border-1 rounded-xl min-h-9 w-full font-sans text-sm py-0 px-3 box-border transition [-webkit-tap-highlight-color:transparent]",
-    "border border-glass-300/80 bg-white/45 text-glass-900 shadow-inner shadow-white/25 backdrop-blur-md",
-    "placeholder:text-glass-500 dark:border-white/25 dark:bg-glass-800/48 dark:text-glass-50 dark:shadow-inner dark:shadow-black/20 dark:placeholder:text-glass-400",
-    /* hover：白の半透明枠は背景に溶けるため、glass 階調の境界で輪郭を保つ */
-    "enabled:hover:border-glass-500 enabled:hover:bg-white/52 enabled:hover:shadow-inner",
-    "dark:enabled:hover:border-glass-400 dark:enabled:hover:bg-glass-800/60",
+    "rounded-[1.125rem] min-h-9 w-full font-sans text-sm py-0 px-3 box-border transition-[box-shadow,background-color,filter] duration-300 [-webkit-tap-highlight-color:transparent]",
+    "border-0 ring-1 ring-black/10 text-glass-900 placeholder:text-glass-500 backdrop-blur-2xl backdrop-saturate-150",
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-1px_0_rgba(15,23,42,0.06),0_6px_20px_-12px_rgba(15,23,42,0.15)]",
+    "bg-linear-to-b from-white/82 to-white/42",
+    "dark:ring-white/14 dark:text-glass-50 dark:placeholder:text-glass-400",
+    "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.35),0_10px_28px_-14px_rgba(0,0,0,0.55)]",
+    "dark:bg-linear-to-b dark:from-glass-800/72 dark:to-glass-950/58",
+    "enabled:hover:brightness-[1.015] dark:enabled:hover:brightness-[1.02]",
   ].join(" "),
   variants: {
     isFocused: {
       false: "",
-      true: "border-glow-500 bg-white/65 shadow-md shadow-glow-600/20 dark:border-glow-400 dark:bg-glass-800/62 dark:shadow-black/30",
+      true: "ring-2 ring-glow-500/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_10px_28px_-10px_rgba(45,212,191,0.28)] dark:ring-glow-400/45 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_14px_36px_-12px_rgba(34,211,238,0.22)]",
     },
     isInvalid: {
       false: "",
-      true: "border-roseglass-500 bg-roseglass-50/35 dark:border-roseglass-500 dark:bg-roseglass-950/35",
+      true: "ring-roseglass-500/75 bg-linear-to-b from-roseglass-50/55 to-white/38 dark:from-roseglass-950/42 dark:to-glass-950/52",
     },
     isDisabled: {
       false: "",
-      true: "cursor-not-allowed border-glass-300/80 bg-glass-100/75 text-glass-400 shadow-none backdrop-blur-sm disabled:placeholder:text-glass-300 dark:border-glass-700 dark:bg-glass-900/68 dark:text-glass-600 dark:disabled:placeholder:text-glass-600",
+      true: "cursor-not-allowed ring-black/6 bg-glass-100/88 text-glass-400 saturate-100 shadow-none backdrop-blur-md disabled:placeholder:text-glass-300 dark:ring-white/8 dark:bg-glass-900/72 dark:text-glass-600 dark:disabled:placeholder:text-glass-600",
     },
   },
   compoundVariants: [
@@ -48,7 +50,7 @@ const inputStyles = tv({
       isFocused: true,
       isInvalid: true,
       class:
-        "border-roseglass-600 bg-roseglass-50/45 shadow-md shadow-roseglass-700/25 dark:border-roseglass-400 dark:bg-roseglass-950/42 dark:shadow-black/35",
+        "ring-2 ring-roseglass-600/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_12px_32px_-12px_rgba(225,29,72,0.28)] dark:ring-roseglass-400/65 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_14px_36px_-12px_rgba(251,113,133,0.22)]",
     },
   ],
 });

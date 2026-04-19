@@ -4,14 +4,14 @@ import { twMerge } from "tailwind-merge";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const card = tv({
-  base: "box-border flex min-w-0 max-w-full flex-col font-sans text-glass-900 shadow-xl dark:text-glass-50 dark:shadow-black/40",
+  base: "box-border flex min-w-0 max-w-full flex-col font-sans text-glass-900 dark:text-glass-50 isolate overflow-hidden",
   variants: {
     variant: {
       default:
-        "rounded-3xl border border-white/50 bg-white/35 shadow-glass-900/5 backdrop-blur-xl dark:border-white/10 dark:bg-glass-900/40",
+        "rounded-[2rem] ring-1 ring-black/8 shadow-[0_24px_48px_-18px_rgba(15,23,42,0.22),inset_0_1px_0_rgba(255,255,255,0.65)] bg-linear-to-br from-white/72 via-white/42 to-white/26 backdrop-blur-2xl backdrop-saturate-150 dark:ring-white/12 dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.22)] dark:bg-linear-to-br dark:from-glass-800/72 dark:via-glass-900/52 dark:to-glass-950/48",
       frost:
-        "rounded-3xl border border-white/45 bg-linear-to-br from-white/40 via-frost-50/35 to-white/28 shadow-frost-900/10 backdrop-blur-xl dark:border-white/12 dark:from-glass-800/45 dark:via-frost-950/30 dark:to-glass-900/38",
-      glow: "rounded-3xl border border-glow-200/45 bg-linear-to-br from-white/45 via-glow-50/25 to-aurora-50/30 shadow-glow-900/15 ring-1 ring-glow-500/15 backdrop-blur-xl dark:border-glow-500/20 dark:from-glass-800/48 dark:via-glow-950/28 dark:to-aurora-950/28 dark:ring-glow-400/18",
+        "rounded-[2rem] ring-1 ring-black/8 shadow-[0_26px_52px_-18px_rgba(56,189,248,0.14),inset_0_1px_0_rgba(255,255,255,0.72)] bg-linear-to-br from-white/76 via-frost-50/42 to-white/28 backdrop-blur-2xl backdrop-saturate-150 dark:ring-frost-400/14 dark:shadow-[0_28px_56px_-22px_rgba(0,0,0,0.62),inset_0_1px_0_rgba(186,230,253,0.18)] dark:bg-linear-to-br dark:from-glass-800/62 dark:via-frost-950/38 dark:to-glass-950/46",
+      glow: "rounded-[2rem] ring-1 ring-glow-400/28 shadow-[0_28px_56px_-18px_rgba(34,211,238,0.22),inset_0_1px_0_rgba(255,255,255,0.68)] bg-linear-to-br from-white/68 via-glow-50/34 to-aurora-100/36 backdrop-blur-2xl backdrop-saturate-[1.35] dark:border-transparent dark:ring-glow-400/22 dark:shadow-[0_32px_60px_-22px_rgba(6,182,212,0.18),inset_0_1px_0_rgba(165,243,252,0.18)] dark:bg-linear-to-br dark:from-glass-800/62 dark:via-glow-950/34 dark:to-aurora-950/38",
     },
     padding: {
       none: "gap-0 p-0",
@@ -52,7 +52,7 @@ export function Card({
 }
 
 const headerStyles =
-  "flex min-w-0 flex-col gap-1.5 border-b border-white/25 pb-4 dark:border-white/10";
+  "flex min-w-0 flex-col gap-1.5 border-b border-white/15 pb-4 dark:border-white/8";
 
 export function CardHeader({
   className,
@@ -89,7 +89,7 @@ export function CardContent({
 }
 
 const footerStyles =
-  "flex flex-wrap items-center gap-2 border-t border-white/20 pt-4 dark:border-white/10";
+  "flex flex-wrap items-center gap-2 border-t border-white/12 pt-4 dark:border-white/8";
 
 export function CardFooter({
   className,
