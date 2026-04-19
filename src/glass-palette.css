@@ -1,0 +1,101 @@
+/**
+ * Glassmorphism 向けカラートークン（Tailwind v4 @theme）
+ * — くすんだ寒色・ティールアクセント・薄いクリムゾン/ミントの意味色
+ */
+
+/* Tailwind v4: unused @theme vars are omitted from CSS — ColorPalette uses inline var(--color-*). */
+@theme static {
+  /* ── ニュートラル：曇りガラス / パネル用（ほんの少し青み） ── */
+  --color-glass-50: oklch(0.985 0.004 255);
+  --color-glass-100: oklch(0.962 0.009 255);
+  --color-glass-200: oklch(0.915 0.018 256);
+  --color-glass-300: oklch(0.858 0.026 257);
+  --color-glass-400: oklch(0.742 0.034 258);
+  --color-glass-500: oklch(0.624 0.038 259);
+  --color-glass-600: oklch(0.518 0.041 260);
+  --color-glass-700: oklch(0.428 0.042 261);
+  --color-glass-800: oklch(0.336 0.038 262);
+  --color-glass-900: oklch(0.246 0.036 263);
+  --color-glass-950: oklch(0.162 0.038 265);
+
+  /* ── シアン寄りのニュートラル：重ねるガラス層用 ── */
+  --color-frost-50: oklch(0.983 0.008 245);
+  --color-frost-100: oklch(0.958 0.016 245);
+  --color-frost-200: oklch(0.908 0.028 246);
+  --color-frost-300: oklch(0.848 0.038 247);
+  --color-frost-400: oklch(0.728 0.046 248);
+  --color-frost-500: oklch(0.598 0.052 249);
+  --color-frost-600: oklch(0.492 0.054 250);
+  --color-frost-700: oklch(0.402 0.052 251);
+  --color-frost-800: oklch(0.318 0.046 252);
+  --color-frost-900: oklch(0.238 0.042 253);
+  --color-frost-950: oklch(0.158 0.04 254);
+
+  /* ── アクセント：ティール / オーロラ（グラデ・CTA・光彩） ── */
+  --color-glow-50: oklch(0.97 0.02 196);
+  --color-glow-100: oklch(0.93 0.045 196);
+  --color-glow-200: oklch(0.85 0.085 196);
+  --color-glow-300: oklch(0.77 0.115 196);
+  --color-glow-400: oklch(0.69 0.135 196);
+  --color-glow-500: oklch(0.615 0.145 196);
+  --color-glow-600: oklch(0.535 0.138 196);
+  --color-glow-700: oklch(0.448 0.118 196);
+  --color-glow-800: oklch(0.368 0.098 196);
+  --color-glow-900: oklch(0.292 0.076 196);
+  --color-glow-950: oklch(0.218 0.056 196);
+
+  --color-aurora-50: oklch(0.97 0.02 305);
+  --color-aurora-100: oklch(0.93 0.055 305);
+  --color-aurora-200: oklch(0.86 0.1 305);
+  --color-aurora-300: oklch(0.78 0.14 305);
+  --color-aurora-400: oklch(0.695 0.175 305);
+  --color-aurora-500: oklch(0.6 0.2 305);
+  --color-aurora-600: oklch(0.52 0.19 305);
+  --color-aurora-700: oklch(0.44 0.16 305);
+  --color-aurora-800: oklch(0.36 0.125 305);
+  --color-aurora-900: oklch(0.28 0.09 305);
+  --color-aurora-950: oklch(0.2 0.065 305);
+
+  /* ── 意味色（ガラスUI向けに彩度を抑える） ── */
+  --color-mint-50: oklch(0.98 0.02 166);
+  --color-mint-100: oklch(0.94 0.045 166);
+  --color-mint-200: oklch(0.88 0.07 166);
+  --color-mint-300: oklch(0.82 0.095 166);
+  --color-mint-400: oklch(0.74 0.115 166);
+  --color-mint-500: oklch(0.665 0.125 166);
+  --color-mint-600: oklch(0.575 0.115 166);
+  --color-mint-700: oklch(0.485 0.098 166);
+  --color-mint-800: oklch(0.395 0.078 166);
+  --color-mint-900: oklch(0.305 0.058 166);
+  --color-mint-950: oklch(0.225 0.042 166);
+
+  --color-coral-50: oklch(0.98 0.02 55);
+  --color-coral-100: oklch(0.955 0.045 55);
+  --color-coral-200: oklch(0.905 0.075 55);
+  --color-coral-300: oklch(0.845 0.105 55);
+  --color-coral-400: oklch(0.775 0.125 55);
+  --color-coral-500: oklch(0.695 0.135 55);
+  --color-coral-600: oklch(0.595 0.125 55);
+  --color-coral-700: oklch(0.495 0.105 55);
+  --color-coral-800: oklch(0.4 0.085 55);
+  --color-coral-900: oklch(0.32 0.065 55);
+  --color-coral-950: oklch(0.24 0.048 55);
+
+  --color-roseglass-50: oklch(0.98 0.02 12);
+  --color-roseglass-100: oklch(0.945 0.045 12);
+  --color-roseglass-200: oklch(0.89 0.08 12);
+  --color-roseglass-300: oklch(0.815 0.11 12);
+  --color-roseglass-400: oklch(0.725 0.14 12);
+  --color-roseglass-500: oklch(0.625 0.165 12);
+  --color-roseglass-600: oklch(0.535 0.155 12);
+  --color-roseglass-700: oklch(0.45 0.13 12);
+  --color-roseglass-800: oklch(0.365 0.105 12);
+  --color-roseglass-900: oklch(0.29 0.08 12);
+  --color-roseglass-950: oklch(0.215 0.058 12);
+
+  /* ── ガラス縁・ハイライト（境界や白フチの代替） ── */
+  --color-glass-edge: oklch(0.95 0.025 250);
+  --color-glass-rim: oklch(0.99 0.01 255);
+  --color-glass-depth: oklch(0.2 0.04 265);
+  --color-backdrop-mist: oklch(0.55 0.06 260);
+}
