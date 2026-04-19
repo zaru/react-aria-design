@@ -87,14 +87,15 @@ export function Tab(props: TabProps) {
   );
 }
 
+const tabPanelsStyles = tv({
+  base: "relative h-(--tab-panel-height) motion-safe:transition-[height] overflow-clip",
+});
+
 export function TabPanels<T extends object>(props: TabPanelsProps<T>) {
   return (
     <RACTabPanels
       {...props}
-      className={twMerge(
-        "relative h-(--tab-panel-height) motion-safe:transition-[height] overflow-clip",
-        props.className,
-      )}
+      className={twMerge(tabPanelsStyles(), props.className)}
     />
   );
 }

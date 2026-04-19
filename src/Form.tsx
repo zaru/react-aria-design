@@ -2,13 +2,15 @@
 import { type FormProps, Form as RACForm } from "react-aria-components/Form";
 import { twMerge } from "tailwind-merge";
 
+import { stack } from "./utils";
+
 export type { FormProps };
 
 export function Form(props: FormProps) {
   return (
     <RACForm
       {...props}
-      className={twMerge("flex flex-col gap-6", props.className)}
+      className={twMerge(stack({ gap: "lg" }), props.className)}
     />
   );
 }

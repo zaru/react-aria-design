@@ -16,16 +16,19 @@ import {
 import { Text, type TextProps } from "react-aria-components/Text";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
-import { composeTailwindRenderProps, focusRing } from "./utils";
+import {
+  composeTailwindRenderProps,
+  fieldDescriptionStyles,
+  fieldErrorStyles,
+  fieldLabelStyles,
+  focusRing,
+} from "./utils";
 
 export function Label(props: LabelProps) {
   return (
     <RACLabel
       {...props}
-      className={twMerge(
-        "font-sans text-sm text-neutral-600 dark:text-neutral-300 font-medium cursor-default w-fit",
-        props.className,
-      )}
+      className={twMerge(fieldLabelStyles(), props.className)}
     />
   );
 }
@@ -35,7 +38,7 @@ export function Description(props: TextProps) {
     <Text
       {...props}
       slot="description"
-      className={twMerge("text-sm text-neutral-600", props.className)}
+      className={twMerge(fieldDescriptionStyles(), props.className)}
     />
   );
 }
@@ -46,11 +49,15 @@ export function FieldError(props: FieldErrorProps) {
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        "text-sm text-red-600 forced-colors:text-[Mark]",
+        fieldErrorStyles(),
       )}
     />
   );
 }
+
+const inputStyles = tv({
+  base: "px-3 py-0 min-h-9 flex-1 min-w-0 border-0 outline outline-0 bg-white dark:bg-neutral-900 font-sans text-sm text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-600 dark:placeholder:text-neutral-400 disabled:text-neutral-200 dark:disabled:text-neutral-600 disabled:placeholder:text-neutral-200 dark:disabled:placeholder:text-neutral-600 [-webkit-tap-highlight-color:transparent]",
+});
 
 export const fieldBorderStyles = tv({
   base: "transition",
@@ -90,10 +97,7 @@ export function Input(props: InputProps) {
   return (
     <RACInput
       {...props}
-      className={composeTailwindRenderProps(
-        props.className,
-        "px-3 py-0 min-h-9 flex-1 min-w-0 border-0 outline outline-0 bg-white dark:bg-neutral-900 font-sans text-sm text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-600 dark:placeholder:text-neutral-400 disabled:text-neutral-200 dark:disabled:text-neutral-600 disabled:placeholder:text-neutral-200 dark:disabled:placeholder:text-neutral-600 [-webkit-tap-highlight-color:transparent]",
-      )}
+      className={composeTailwindRenderProps(props.className, inputStyles())}
     />
   );
 }

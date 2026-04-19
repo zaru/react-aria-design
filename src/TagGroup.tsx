@@ -15,7 +15,7 @@ import {
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 import { Description, Label } from "./Field";
-import { focusRing } from "./utils";
+import { fieldErrorStyles, focusRing, stack } from "./utils";
 
 const colors = {
   gray: "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 dark:bg-neutral-900 dark:text-neutral-300 dark:border-neutral-600 dark:hover:border-neutral-500",
@@ -82,7 +82,7 @@ export function TagGroup<T extends object>({
   return (
     <AriaTagGroup
       {...props}
-      className={twMerge("flex flex-col gap-2 font-sans", props.className)}
+      className={twMerge(stack({ gap: "sm", font: "sans" }), props.className)}
     >
       <Label>{label}</Label>
       <ColorContext.Provider value={props.color || "gray"}>
@@ -96,7 +96,7 @@ export function TagGroup<T extends object>({
       </ColorContext.Provider>
       {description && <Description>{description}</Description>}
       {errorMessage && (
-        <Text slot="errorMessage" className="text-sm text-red-600">
+        <Text slot="errorMessage" className={fieldErrorStyles()}>
           {errorMessage}
         </Text>
       )}

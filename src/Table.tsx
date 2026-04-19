@@ -30,14 +30,15 @@ export interface TableProps extends Omit<AriaTableProps, "className"> {
   className?: string;
 }
 
+const tableContainerStyles = tv({
+  base: "w-full max-h-[320px] overflow-auto scroll-pt-[2.281rem] relative bg-white dark:bg-neutral-900 box-border border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans",
+});
+
 export function Table(props: TableProps) {
   return (
     <ResizableTableContainer
       onScroll={props.onScroll}
-      className={twMerge(
-        "w-full max-h-[320px] overflow-auto scroll-pt-[2.281rem] relative bg-white dark:bg-neutral-900 box-border border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans",
-        props.className,
-      )}
+      className={twMerge(tableContainerStyles(), props.className)}
     >
       <AriaTable
         {...props}

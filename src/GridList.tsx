@@ -15,21 +15,32 @@ import { tv } from "tailwind-variants";
 import { Checkbox } from "./Checkbox";
 import { composeTailwindRenderProps, focusRing } from "./utils";
 
+const gridListRootStyles = tv({
+  base: "relative bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans empty:flex empty:items-center empty:justify-center empty:italic empty:text-sm",
+  variants: {
+    orientation: {
+      horizontal:
+        "flex flex-row flex-nowrap overflow-x-auto w-full max-w-[500px]",
+      vertical: "overflow-auto w-[200px]",
+    },
+  },
+});
+
 export function GridList<T extends object>({
   children,
   ...props
 }: GridListProps<T>) {
-  const isHorizontal =
+  const orientation =
     (props as { orientation?: "horizontal" | "vertical" }).orientation ===
-    "horizontal";
+    "horizontal"
+      ? "horizontal"
+      : "vertical";
   return (
     <AriaGridList
       {...props}
       className={composeTailwindRenderProps(
         props.className,
-        isHorizontal
-          ? "flex flex-row flex-nowrap overflow-x-auto relative w-full max-w-[500px] bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans empty:flex empty:items-center empty:justify-center empty:italic empty:text-sm"
-          : "overflow-auto w-[200px] relative bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-lg font-sans empty:flex empty:items-center empty:justify-center empty:italic empty:text-sm",
+        gridListRootStyles({ orientation }),
       )}
     >
       {children}
@@ -63,7 +74,13 @@ const itemStyles = tv({
 export function GridListItem({ children, ...props }: GridListItemProps) {
   const textValue = typeof children === "string" ? children : undefined;
   return (
-    <AriaGridListItem textValue={textValue} {...props} className={itemStyles}>
+    <AriaGridListItem
+      textValue={textValue}
+      {...props}
+      className={composeRenderProps(props.className, (className, renderProps) =>
+        itemStyles({ ...renderProps, className }),
+      )}
+    >
       {composeRenderProps(
         children,
         (children, { selectionMode, selectionBehavior, allowsDragging }) => (
@@ -81,6 +98,10 @@ export function GridListItem({ children, ...props }: GridListItemProps) {
   );
 }
 
+const gridListHeaderStyles = tv({
+  base: "text-sm font-semibold text-neutral-500 dark:text-neutral-300 px-4 py-1 -mt-px z-10 bg-neutral-100/60 dark:bg-neutral-700/60 backdrop-blur-md supports-[-moz-appearance:none]:bg-neutral-100 border-y border-y-neutral-200 dark:border-y-neutral-700",
+});
+
 export function GridListHeader({
   children,
   ...props
@@ -88,10 +109,7 @@ export function GridListHeader({
   return (
     <AriaGridListHeader
       {...props}
-      className={twMerge(
-        "text-sm font-semibold text-neutral-500 dark:text-neutral-300 px-4 py-1 -mt-px z-10 bg-neutral-100/60 dark:bg-neutral-700/60 backdrop-blur-md supports-[-moz-appearance:none]:bg-neutral-100 border-y border-y-neutral-200 dark:border-y-neutral-700",
-        props.className,
-      )}
+      className={twMerge(gridListHeaderStyles(), props.className)}
     >
       {children}
     </AriaGridListHeader>

@@ -9,13 +9,13 @@ import {
 } from "react-aria-components/Breadcrumbs";
 import { twMerge } from "tailwind-merge";
 import { Link } from "./Link";
-import { composeTailwindRenderProps } from "./utils";
+import { composeTailwindRenderProps, row } from "./utils";
 
 export function Breadcrumbs<T extends object>(props: BreadcrumbsProps<T>) {
   return (
     <AriaBreadcrumbs
       {...props}
-      className={twMerge("flex gap-1", props.className)}
+      className={twMerge(row({ gap: "xs" }), props.className)}
     />
   );
 }
