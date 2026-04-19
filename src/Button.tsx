@@ -5,27 +5,39 @@ import {
 } from "react-aria-components/Button";
 import { composeRenderProps } from "react-aria-components/composeRenderProps";
 import { tv } from "tailwind-variants";
-import { focusRing } from "./utils";
 
 export interface ButtonProps extends RACButtonProps {
   /** @default 'primary' */
   variant?: "primary" | "secondary" | "destructive" | "quiet";
 }
 
+/** Glassmorphism 向けフォーカスリング（パレットの glow に整合） */
+const glassFocusRing = tv({
+  base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] outline-offset-2",
+  variants: {
+    isFocusVisible: {
+      false: "outline-0",
+      true: "outline-2",
+    },
+  },
+});
+
 const button = tv({
-  extend: focusRing,
-  base: "relative inline-flex items-center justify-center gap-2 border border-transparent dark:border-white/10 h-9 box-border px-3.5 py-0 [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-8 [&:has(>svg:only-child)]:w-8 font-sans text-sm text-center transition rounded-lg cursor-default [-webkit-tap-highlight-color:transparent]",
+  extend: glassFocusRing,
+  base: "relative inline-flex items-center justify-center gap-2 h-9 box-border px-3.5 py-0 [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-8 [&:has(>svg:only-child)]:w-8 font-sans font-medium text-sm text-center transition-all duration-200 rounded-full cursor-default [-webkit-tap-highlight-color:transparent]",
   variants: {
     variant: {
-      primary: "bg-blue-600 hover:bg-blue-700 pressed:bg-blue-800 text-white",
+      primary:
+        "border border-white/35 bg-glow-500/90 shadow-lg shadow-glow-600/25 backdrop-blur-md text-white hover:bg-glow-600/92 pressed:bg-glow-700/95 dark:border-white/20 dark:bg-glow-500/88 dark:shadow-black/25",
       secondary:
-        "border-black/10 bg-neutral-50 hover:bg-neutral-100 pressed:bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:pressed:bg-neutral-500 dark:text-neutral-100",
-      destructive: "bg-red-700 hover:bg-red-800 pressed:bg-red-900 text-white",
+        "border border-glass-edge bg-white/45 shadow-sm backdrop-blur-md text-glass-800 hover:bg-white/58 pressed:bg-white/68 dark:border-white/15 dark:bg-glass-800/50 dark:text-glass-100 dark:hover:bg-glass-800/62 dark:pressed:bg-glass-800/72",
+      destructive:
+        "border border-white/30 bg-roseglass-600/90 shadow-lg shadow-roseglass-800/25 backdrop-blur-md text-white hover:bg-roseglass-700/92 pressed:bg-roseglass-800/95 dark:border-white/15 dark:bg-roseglass-600/88",
       quiet:
-        "border-0 bg-transparent hover:bg-neutral-200 pressed:bg-neutral-300 text-neutral-800 dark:hover:bg-neutral-700 dark:pressed:bg-neutral-600 dark:text-neutral-100",
+        "border border-transparent bg-transparent hover:border-white/25 hover:bg-white/40 hover:backdrop-blur-md pressed:bg-white/52 text-glass-800 dark:text-glass-100 dark:hover:border-white/10 dark:hover:bg-glass-800/45 dark:pressed:bg-glass-800/58",
     },
     isDisabled: {
-      true: "border-transparent dark:border-transparent bg-neutral-100 dark:bg-neutral-800 text-neutral-300 dark:text-neutral-600 forced-colors:text-[GrayText]",
+      true: "cursor-not-allowed border-white/35 bg-glass-200/80 text-glass-400 shadow-none backdrop-blur-sm dark:border-white/10 dark:bg-glass-900/75 dark:text-glass-600 forced-colors:text-[GrayText]",
     },
     isPending: {
       true: "text-transparent",
@@ -38,7 +50,8 @@ const button = tv({
     {
       variant: "quiet",
       isDisabled: true,
-      class: "bg-transparent dark:bg-transparent",
+      class:
+        "border-transparent bg-transparent hover:border-transparent dark:border-transparent dark:bg-transparent dark:hover:border-transparent",
     },
   ],
 });

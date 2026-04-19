@@ -1,37 +1,43 @@
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "../src/Button";
+import { glassBackdrop } from "./decorators";
 
-export default {
+const meta = {
   title: "Button",
   component: Button,
+  decorators: [glassBackdrop],
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
+    backgrounds: { disable: true },
   },
   tags: ["autodocs"],
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "destructive"],
+      options: ["primary", "secondary", "destructive", "quiet"],
     },
   },
   args: {
     isDisabled: false,
     children: "Button",
   },
-};
+} satisfies Meta<typeof Button>;
 
-export const Primary = {
+export default meta;
+
+export const Primary: StoryObj<typeof meta> = {
   args: {
     variant: "primary",
   },
 };
 
-export const Secondary = {
+export const Secondary: StoryObj<typeof meta> = {
   args: {
     variant: "secondary",
   },
 };
 
-export const Destructive = {
+export const Destructive: StoryObj<typeof meta> = {
   args: {
     variant: "destructive",
   },
