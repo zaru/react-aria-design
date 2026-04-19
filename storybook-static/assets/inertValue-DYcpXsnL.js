@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";function r(e){let t=i.version.split(`.`);return parseInt(t[0],10)>=19?e:e?`true`:void 0}var i,a=t((()=>{i=e(n(),1)})),o=t((()=>{a()}));export{r as n,o as t};

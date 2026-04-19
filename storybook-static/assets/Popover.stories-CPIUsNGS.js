@@ -1,9 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{t as r}from"./dist-9ImPcI4I.js";import{t as i}from"./Heading-Cjytmbqb.js";import{t as a}from"./Dialog-CCRDI23d.js";import{t as o}from"./Dialog-mKtBo6J_.js";import{f as s,t as c}from"./lucide-react-BofDbsl4.js";import{t as l}from"./Heading-D9TEfw0x.js";import{n as u,t as d}from"./Button-C_NVVPdA.js";import{n as f,t as p}from"./Dialog-C7WdX4IM.js";import{n as m,t as h}from"./Popover-MXOp8y31.js";var g,_,v,y;t((()=>{r(),c(),g=e(n(),1),o(),l(),u(),f(),m(),_={component:h,parameters:{layout:`centered`},tags:[`autodocs`],args:{showArrow:!0}},v=e=>g.createElement(a,null,g.createElement(d,{variant:`secondary`,"aria-label":`Help`},g.createElement(s,{className:`w-4 h-4`})),g.createElement(h,{...e,className:`max-w-[250px]`},g.createElement(p,null,g.createElement(i,{slot:`title`,className:`text-lg font-semibold mb-2`},`Help`),g.createElement(`p`,{className:`text-sm`},`For help accessing your account, please contact support.`)))),v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`(args: any) => <DialogTrigger>
-    <Button variant="secondary" aria-label="Help"><HelpCircle className="w-4 h-4" /></Button>
-    <Popover {...args} className="max-w-[250px]">
-      <Dialog>
-        <Heading slot="title" className="text-lg font-semibold mb-2">Help</Heading>
-        <p className="text-sm">For help accessing your account, please contact support.</p>
-      </Dialog>
-    </Popover>
-  </DialogTrigger>`,...v.parameters?.docs?.source}}},y=[`Example`]}))();export{v as Example,y as __namedExportsOrder,_ as default};

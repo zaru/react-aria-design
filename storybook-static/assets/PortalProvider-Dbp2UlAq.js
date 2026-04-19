@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";function r(){return(0,i.useContext)(a)??{}}var i,a,o=t((()=>{i=e(n(),1),a=(0,i.createContext)({})}));export{o as n,r as t};

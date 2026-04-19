@@ -1,3 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{t as r}from"./dist-9ImPcI4I.js";import{n as i,t as a}from"./Link-CozuVogb.js";var o,s,c,l;t((()=>{r(),o=e(n(),1),i(),s={component:a,parameters:{layout:`centered`},tags:[`autodocs`]},c=e=>o.createElement(a,e,`The missing link`),c.args={href:`https://www.imdb.com/title/tt6348138/`,target:`_blank`},c.parameters={...c.parameters,docs:{...c.parameters?.docs,source:{originalSource:`(args: any) => <Link {...args}>
-    The missing link
-  </Link>`,...c.parameters?.docs?.source}}},l=[`Example`]}))();export{c as Example,l as __namedExportsOrder,s as default};

@@ -1,1 +1,0 @@
-import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{n as r,t as i}from"./I18nProvider-6BcZLPWK.js";import{a,s as o}from"./number-qJIuCHSi.js";function s(e={}){let{locale:t}=i();return(0,c.useMemo)(()=>new o(t,e),[t,e])}var c,l=t((()=>{r(),a(),c=e(n(),1)}));export{l as n,s as t};
