@@ -1,0 +1,1 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{i as r,r as i}from"./Color-BYTDVdJ_.js";function a(e){return(0,o.useMemo)(()=>{if(typeof e==`string`)try{return i(e)}catch{return}return e},[e])}var o,s=t((()=>{r(),o=e(n(),1)}));export{s as n,a as t};

@@ -1,0 +1,1 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{n as r,t as i}from"./useEffectEvent-BVcKhTbD.js";function a(e,t,n,r){let a=i(n),s=n==null;(0,o.useEffect)(()=>{if(s||!e.current)return;let n=e.current;return n.addEventListener(t,a,r),()=>{n.removeEventListener(t,a,r)}},[e,t,r,s])}var o,s=t((()=>{r(),o=e(n(),1)}));export{s as n,a as t};

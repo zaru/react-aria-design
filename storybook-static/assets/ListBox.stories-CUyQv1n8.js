@@ -1,0 +1,6 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{t as r}from"./dist-9ImPcI4I.js";import{i,o as a,r as o}from"./ListBox-XufJ8tGs.js";var s,c,l,u,d;t((()=>{r(),s=e(n(),1),a(),c={component:o,parameters:{layout:`centered`},tags:[`autodocs`]},l=e=>s.createElement(o,{"aria-label":`Ice cream flavor`,...e},s.createElement(i,{id:`chocolate`},`Chocolate`),s.createElement(i,{id:`mint`},`Mint`),s.createElement(i,{id:`strawberry`},`Strawberry`),s.createElement(i,{id:`vanilla`},`Vanilla`)),l.args={onAction:null,selectionMode:`multiple`},u=e=>s.createElement(l,e),u.args={...l.args,disabledKeys:[`mint`]},l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`(args: any) => <ListBox aria-label="Ice cream flavor" {...args}>
+    <ListBoxItem id="chocolate">Chocolate</ListBoxItem>
+    <ListBoxItem id="mint">Mint</ListBoxItem>
+    <ListBoxItem id="strawberry">Strawberry</ListBoxItem>
+    <ListBoxItem id="vanilla">Vanilla</ListBoxItem>
+  </ListBox>`,...l.parameters?.docs?.source}}},u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`(args: any) => <Example {...args} />`,...u.parameters?.docs?.source}}},d=[`Example`,`DisabledItems`]}))();export{u as DisabledItems,l as Example,d as __namedExportsOrder,c as default};

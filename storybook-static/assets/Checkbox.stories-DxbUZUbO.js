@@ -1,0 +1,3 @@
+import{n as e}from"./chunk-BneVvdWh.js";import{n as t,t as n}from"./Checkbox-DT5DeBSa.js";var r,i,a;e((()=>{t(),r={title:`Checkbox`,component:n,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{},args:{isDisabled:!1,children:`Checkbox`}},i={args:{}},i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  args: {}
+}`,...i.parameters?.docs?.source}}},a=[`Default`]}))();export{i as Default,a as __namedExportsOrder,r as default};

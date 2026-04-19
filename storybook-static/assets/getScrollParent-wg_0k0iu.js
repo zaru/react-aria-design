@@ -1,0 +1,1 @@
+import{n as e}from"./chunk-BneVvdWh.js";import{o as t,s as n}from"./scrollIntoView-B0S9FIjh.js";function r(e,n){let r=e;for(t(r,n)&&(r=r.parentElement);r&&!t(r,n);)r=r.parentElement;return r||document.scrollingElement||document.documentElement}var i=e((()=>{n()}));export{i as n,r as t};

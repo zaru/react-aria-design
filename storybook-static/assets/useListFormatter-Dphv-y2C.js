@@ -1,0 +1,1 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{n as r,t as i}from"./I18nProvider-6BcZLPWK.js";function a(e={}){let{locale:t}=i();return(0,o.useMemo)(()=>new Intl.ListFormat(t,e),[t,e])}var o,s=t((()=>{r(),o=e(n(),1)})),c=t((()=>{s()}));export{a as n,c as t};

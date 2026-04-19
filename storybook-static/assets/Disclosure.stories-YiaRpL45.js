@@ -1,0 +1,4 @@
+import{a as e,n as t}from"./chunk-BneVvdWh.js";import{t as n}from"./react-D1sJ83FZ.js";import{t as r}from"./dist-9ImPcI4I.js";import{i,n as a,r as o,t as s}from"./Disclosure-B1xO69li.js";var c,l,u,d;t((()=>{r(),c=e(n(),1),i(),l={component:s,parameters:{layout:`centered`},tags:[`autodocs`]},u=e=>c.createElement(s,e,c.createElement(a,null,`Files`),c.createElement(o,null,`Files content`)),u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`(args: any) => <Disclosure {...args}>
+    <DisclosureHeader>Files</DisclosureHeader>
+    <DisclosurePanel>Files content</DisclosurePanel>
+  </Disclosure>`,...u.parameters?.docs?.source}}},d=[`Example`]}))();export{u as Example,d as __namedExportsOrder,l as default};

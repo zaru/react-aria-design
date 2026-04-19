@@ -23,6 +23,7 @@
   },
   "include": [
     "src",
-    "stories"
+    "stories",
+    "vite.config.ts"
   ]
 }
