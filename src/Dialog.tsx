@@ -8,7 +8,10 @@ import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 
 const dialogStyles = tv({
-  base: "outline outline-0 box-border p-6 [[data-placement]>&]:p-4 max-h-[inherit] overflow-auto relative",
+  base:
+    "font-sans outline-0 box-border relative max-h-[inherit] overflow-auto " +
+    "p-7 [[data-placement]>&]:p-4 " +
+    "text-glass-900 dark:text-glass-50",
 });
 
 export function Dialog(props: DialogProps) {
