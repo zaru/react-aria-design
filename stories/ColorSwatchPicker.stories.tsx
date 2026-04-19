@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/react-vite";
 import {
   ColorSwatchPicker,
   ColorSwatchPickerItem,
+  type ColorSwatchPickerRootProps,
 } from "../src/ColorSwatchPicker";
 
 const meta: Meta<typeof ColorSwatchPicker> = {
@@ -14,7 +15,7 @@ const meta: Meta<typeof ColorSwatchPicker> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: ColorSwatchPickerRootProps) => (
   <ColorSwatchPicker {...args}>
     <ColorSwatchPickerItem color="#A00" />
     <ColorSwatchPickerItem color="#f80" />

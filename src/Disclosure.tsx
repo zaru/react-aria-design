@@ -53,7 +53,11 @@ export interface DisclosureHeaderProps {
 }
 
 export function DisclosureHeader({ children }: DisclosureHeaderProps) {
-  const { isExpanded } = useContext(DisclosureStateContext)!;
+  const disclosure = useContext(DisclosureStateContext);
+  if (!disclosure) {
+    throw new Error("DisclosureHeader must be used within Disclosure");
+  }
+  const { isExpanded } = disclosure;
   return (
     <Heading className="text-lg font-semibold m-0">
       <Button

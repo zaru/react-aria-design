@@ -2,6 +2,8 @@
 import { type FormProps, Form as RACForm } from "react-aria-components/Form";
 import { twMerge } from "tailwind-merge";
 
+export type { FormProps };
+
 export function Form(props: FormProps) {
   return (
     <RACForm

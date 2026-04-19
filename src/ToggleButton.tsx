@@ -32,3 +32,5 @@ export function ToggleButton(props: ToggleButtonProps) {
     />
   );
 }
+
+export type { ToggleButtonProps };

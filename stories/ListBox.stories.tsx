@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ListBox, ListBoxItem } from "../src/ListBox";
+import { ListBox, ListBoxItem, type ListBoxProps } from "../src/ListBox";
 
 const meta: Meta<typeof ListBox> = {
   component: ListBox,
@@ -11,7 +11,7 @@ const meta: Meta<typeof ListBox> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: ListBoxProps<object>) => (
   <ListBox aria-label="Ice cream flavor" {...args}>
     <ListBoxItem id="chocolate">Chocolate</ListBoxItem>
     <ListBoxItem id="mint">Mint</ListBoxItem>
@@ -25,7 +25,9 @@ Example.args = {
   selectionMode: "multiple",
 };
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: ListBoxProps<object>) => (
+  <Example {...args} />
+);
 DisabledItems.args = {
   ...Example.args,
   disabledKeys: ["mint"],

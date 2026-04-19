@@ -114,3 +114,5 @@ export function TabPanel(props: TabPanelProps) {
     />
   );
 }
+
+export type { TabsProps };

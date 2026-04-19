@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorField } from "../src/ColorField";
+import { ColorField, type ColorFieldProps } from "../src/ColorField";
 
 const meta: Meta<typeof ColorField> = {
   component: ColorField,
@@ -15,4 +15,4 @@ const meta: Meta<typeof ColorField> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorField {...args} />;
+export const Example = (args: ColorFieldProps) => <ColorField {...args} />;

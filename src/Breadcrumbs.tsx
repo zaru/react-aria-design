@@ -42,3 +42,5 @@ export function Breadcrumb(
     </AriaBreadcrumb>
   );
 }
+
+export type { BreadcrumbsProps } from "react-aria-components/Breadcrumbs";

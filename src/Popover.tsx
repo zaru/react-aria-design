@@ -42,7 +42,9 @@ export function Popover({
     >
       {showArrow && (
         <OverlayArrow className="group">
+          {/* biome-ignore lint/a11y/noSvgWithoutTitle: 矢印は装飾（オーバーレイの見た目用） */}
           <svg
+            aria-hidden
             width={12}
             height={12}
             viewBox="0 0 12 12"

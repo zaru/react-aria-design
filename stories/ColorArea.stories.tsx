@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorArea } from "../src/ColorArea";
+import { ColorArea, type ColorAreaProps } from "../src/ColorArea";
 
 const meta: Meta<typeof ColorArea> = {
   component: ColorArea,
@@ -11,4 +11,6 @@ const meta: Meta<typeof ColorArea> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorArea {...args} className="w-50" />;
+export const Example = (args: ColorAreaProps) => (
+  <ColorArea {...args} className="w-50" />
+);

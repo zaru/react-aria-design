@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { Button } from "../src/Button";
 import { DateField } from "../src/DateField";
-import { Form } from "../src/Form";
+import { Form, type FormProps } from "../src/Form";
 import { TextField } from "../src/TextField";
 
 const meta: Meta<typeof Form> = {
@@ -14,7 +14,7 @@ const meta: Meta<typeof Form> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: FormProps) => (
   <Form {...args}>
     <TextField
       label="Email"

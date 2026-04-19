@@ -1,4 +1,5 @@
 "use client";
+
 import { ChevronRight } from "lucide-react";
 import {
   Tree as AriaTree,
@@ -101,3 +102,5 @@ export function TreeItem(props: TreeItemProps) {
     </AriaTreeItem>
   );
 }
+
+export type { TreeProps } from "react-aria-components/Tree";

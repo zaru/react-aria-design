@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { Meter } from "../src/Meter";
+import { Meter, type MeterProps } from "../src/Meter";
 
 const meta: Meta<typeof Meter> = {
   component: Meter,
@@ -11,7 +11,7 @@ const meta: Meta<typeof Meter> = {
 
 export default meta;
 
-export const Example = (args: any) => <Meter {...args} />;
+export const Example = (args: MeterProps) => <Meter {...args} />;
 
 Example.args = {
   label: "Storage space",

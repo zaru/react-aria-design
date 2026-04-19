@@ -4,6 +4,7 @@ import { Button } from "../src/Button";
 import {
   Menu,
   MenuItem,
+  type MenuProps,
   MenuSection,
   MenuSeparator,
   MenuTrigger,
@@ -20,7 +21,7 @@ const meta: Meta<typeof Menu> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: MenuProps<object>) => (
   <MenuTrigger>
     <Button variant="secondary" className="px-2">
       <MoreHorizontal className="w-5 h-5" />
@@ -37,12 +38,12 @@ export const Example = (args: any) => (
   </MenuTrigger>
 );
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: MenuProps<object>) => <Example {...args} />;
 DisabledItems.args = {
   disabledKeys: ["save"],
 };
 
-export const Sections = (args: any) => (
+export const Sections = (args: MenuProps<object>) => (
   <MenuTrigger>
     <Button variant="secondary" className="px-2">
       <MoreHorizontal className="w-5 h-5" />
@@ -64,7 +65,7 @@ export const Sections = (args: any) => (
   </MenuTrigger>
 );
 
-export const Submenu = (args: any) => (
+export const Submenu = (args: MenuProps<object>) => (
   <MenuTrigger>
     <Button variant="secondary" className="px-2">
       <MoreHorizontal className="w-5 h-5" />

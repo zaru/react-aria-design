@@ -4,7 +4,10 @@ import {
   DisclosureHeader,
   DisclosurePanel,
 } from "../src/Disclosure";
-import { DisclosureGroup } from "../src/DisclosureGroup";
+import {
+  DisclosureGroup,
+  type DisclosureGroupProps,
+} from "../src/DisclosureGroup";
 
 const meta: Meta<typeof DisclosureGroup> = {
   component: DisclosureGroup,
@@ -16,7 +19,7 @@ const meta: Meta<typeof DisclosureGroup> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: DisclosureGroupProps) => (
   <DisclosureGroup {...args}>
     <Disclosure>
       <DisclosureHeader>Files</DisclosureHeader>

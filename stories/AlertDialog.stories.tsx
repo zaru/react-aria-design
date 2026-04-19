@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react-vite";
 import { DialogTrigger } from "react-aria-components/Dialog";
-import { AlertDialog } from "../src/AlertDialog";
+import { AlertDialog, type AlertDialogProps } from "../src/AlertDialog";
 import { Button } from "../src/Button";
 import { Modal } from "../src/Modal";
 
@@ -14,7 +14,7 @@ const meta: Meta<typeof AlertDialog> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: AlertDialogProps) => (
   <DialogTrigger>
     <Button variant="secondary">Delete…</Button>
     <Modal>

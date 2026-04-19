@@ -26,7 +26,7 @@ import { tv } from "tailwind-variants";
 import { Checkbox } from "./Checkbox";
 import { composeTailwindRenderProps, focusRing } from "./utils";
 
-interface TableProps extends Omit<AriaTableProps, "className"> {
+export interface TableProps extends Omit<AriaTableProps, "className"> {
   className?: string;
 }
 

@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ToggleButton } from "../src/ToggleButton";
+import { ToggleButton, type ToggleButtonProps } from "../src/ToggleButton";
 
 const meta: Meta<typeof ToggleButton> = {
   component: ToggleButton,
@@ -11,6 +11,6 @@ const meta: Meta<typeof ToggleButton> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: ToggleButtonProps) => (
   <ToggleButton {...args}>Pin</ToggleButton>
 );

@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorSlider } from "../src/ColorSlider";
+import { ColorSlider, type ColorSliderProps } from "../src/ColorSlider";
 
 const meta: Meta<typeof ColorSlider> = {
   component: ColorSlider,
@@ -11,7 +11,7 @@ const meta: Meta<typeof ColorSlider> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorSlider {...args} />;
+export const Example = (args: ColorSliderProps) => <ColorSlider {...args} />;
 
 Example.args = {
   label: "Fill Color",

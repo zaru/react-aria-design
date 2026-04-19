@@ -14,7 +14,7 @@ import {
 import { tv } from "tailwind-variants";
 import { composeTailwindRenderProps, focusRing } from "./utils";
 
-interface ListBoxProps<T>
+export interface ListBoxProps<T>
   extends Omit<AriaListBoxProps<T>, "layout" | "orientation"> {}
 
 export function ListBox<T extends object>({
@@ -114,7 +114,7 @@ export function DropdownItem(props: ListBoxItemProps) {
 
 export interface DropdownSectionProps<T> extends ListBoxSectionProps<T> {
   title?: string;
-  items?: any;
+  items?: Iterable<T>;
 }
 
 export function DropdownSection<T extends object>(

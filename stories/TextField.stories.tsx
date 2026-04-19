@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { TextField } from "../src/TextField";
+import { TextField, type TextFieldProps } from "../src/TextField";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
@@ -17,9 +17,9 @@ const meta: Meta<typeof TextField> = {
 
 export default meta;
 
-export const Example = (args: any) => <TextField {...args} />;
+export const Example = (args: TextFieldProps) => <TextField {...args} />;
 
-export const Validation = (args: any) => (
+export const Validation = (args: TextFieldProps) => (
   <Form className="flex flex-col gap-2 items-start">
     <TextField {...args} />
     <Button type="submit" variant="secondary">

@@ -1,7 +1,7 @@
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
 import { Checkbox } from "../src/Checkbox";
-import { CheckboxGroup } from "../src/CheckboxGroup";
+import { CheckboxGroup, type CheckboxGroupProps } from "../src/CheckboxGroup";
 
 export default {
   title: "CheckboxGroup",
@@ -32,7 +32,7 @@ export const Default = {
   args: {},
 };
 
-export const Validation = (args: any) => (
+export const Validation = (args: CheckboxGroupProps) => (
   <Form className="flex flex-col gap-2 items-start">
     <CheckboxGroup {...args} />
     <Button type="submit" variant="secondary">

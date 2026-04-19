@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorPicker } from "../src/ColorPicker";
+import { ColorPicker, type ColorPickerProps } from "../src/ColorPicker";
 
 const meta: Meta<typeof ColorPicker> = {
   component: ColorPicker,
@@ -15,4 +15,4 @@ const meta: Meta<typeof ColorPicker> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorPicker {...args} />;
+export const Example = (args: ColorPickerProps) => <ColorPicker {...args} />;

@@ -1,7 +1,14 @@
 import type { Meta } from "@storybook/react-vite";
 import { useMemo, useState } from "react";
-import { TableBody } from "react-aria-components/Table";
-import { Cell, Column, Row, Table, TableHeader } from "../src/Table";
+import { type SortDescriptor, TableBody } from "react-aria-components/Table";
+import {
+  Cell,
+  Column,
+  Row,
+  Table,
+  TableHeader,
+  type TableProps,
+} from "../src/Table";
 
 const meta: Meta<typeof Table> = {
   component: Table,
@@ -25,19 +32,22 @@ const rows = [
   { id: 9, name: "Budget.xls", date: "1/6/2024", type: "Excel file" },
 ];
 
-export const Example = (args: any) => {
-  const [sortDescriptor, setSortDescriptor] = useState({
+type FileRow = (typeof rows)[number];
+
+export const Example = (args: TableProps) => {
+  const [sortDescriptor, setSortDescriptor] = useState<SortDescriptor>({
     column: "name",
     direction: "ascending",
   });
 
   const items = useMemo(() => {
-    // @ts-expect-error
+    const column = sortDescriptor.column as keyof Pick<
+      FileRow,
+      "name" | "date" | "type"
+    >;
     const items = rows
       .slice()
-      .sort((a, b) =>
-        a[sortDescriptor.column].localeCompare(b[sortDescriptor.column]),
-      );
+      .sort((a, b) => String(a[column]).localeCompare(String(b[column])));
     if (sortDescriptor.direction === "descending") {
       items.reverse();
     }

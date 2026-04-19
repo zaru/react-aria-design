@@ -4,7 +4,7 @@ import { DialogTrigger } from "react-aria-components/Dialog";
 import { Heading } from "react-aria-components/Heading";
 import { Button } from "../src/Button";
 import { Dialog } from "../src/Dialog";
-import { Popover } from "../src/Popover";
+import { Popover, type PopoverProps } from "../src/Popover";
 
 const meta: Meta<typeof Popover> = {
   component: Popover,
@@ -19,7 +19,7 @@ const meta: Meta<typeof Popover> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: PopoverProps) => (
   <DialogTrigger>
     <Button variant="secondary" aria-label="Help">
       <HelpCircle className="w-4 h-4" />

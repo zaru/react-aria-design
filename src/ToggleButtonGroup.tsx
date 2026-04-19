@@ -26,3 +26,5 @@ export function ToggleButtonGroup(props: ToggleButtonGroupProps) {
     />
   );
 }
+
+export type { ToggleButtonGroupProps };

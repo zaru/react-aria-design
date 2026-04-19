@@ -1,5 +1,12 @@
 import type { Meta } from "@storybook/react-vite";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "../src/Tabs";
+import {
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  type TabsProps,
+} from "../src/Tabs";
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
@@ -11,7 +18,7 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: TabsProps) => (
   <Tabs {...args}>
     <TabList aria-label="History of Ancient Rome">
       <Tab id="FoR">Founding of Rome</Tab>

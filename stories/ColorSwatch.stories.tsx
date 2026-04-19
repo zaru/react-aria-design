@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorSwatch } from "../src/ColorSwatch";
+import { ColorSwatch, type ColorSwatchProps } from "../src/ColorSwatch";
 
 const meta: Meta<typeof ColorSwatch> = {
   component: ColorSwatch,
@@ -11,7 +11,7 @@ const meta: Meta<typeof ColorSwatch> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorSwatch {...args} />;
+export const Example = (args: ColorSwatchProps) => <ColorSwatch {...args} />;
 
 Example.args = {
   color: "#f00a",

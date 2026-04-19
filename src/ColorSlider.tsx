@@ -23,7 +23,7 @@ const trackStyles = tv({
   },
 });
 
-interface ColorSliderProps extends AriaColorSliderProps {
+export interface ColorSliderProps extends AriaColorSliderProps {
   label?: string;
 }
 

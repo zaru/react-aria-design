@@ -59,7 +59,9 @@ export function Button(props: ButtonProps) {
               aria-hidden
               className="flex absolute inset-0 justify-center items-center"
             >
+              {/* biome-ignore lint/a11y/noSvgWithoutTitle: ローディングスピナーは装飾であり親 span が aria-hidden */}
               <svg
+                aria-hidden
                 className="w-4 h-4 text-white animate-spin"
                 viewBox="0 0 24 24"
                 stroke={

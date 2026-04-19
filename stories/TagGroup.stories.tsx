@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
-import { Tag, TagGroup } from "../src/TagGroup";
+import { Tag, TagGroup, type TagGroupProps } from "../src/TagGroup";
 
-const meta: Meta<typeof Example> = {
+const meta: Meta<typeof TagGroup> = {
   component: TagGroup,
   parameters: {
     layout: "centered",
@@ -11,7 +11,7 @@ const meta: Meta<typeof Example> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: TagGroupProps<object>) => (
   <TagGroup {...args}>
     <Tag>Chocolate</Tag>
     <Tag isDisabled>Mint</Tag>

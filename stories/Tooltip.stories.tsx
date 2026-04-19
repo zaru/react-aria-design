@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/react-vite";
 import { PrinterIcon, SaveIcon } from "lucide-react";
 import { TooltipTrigger } from "react-aria-components/Tooltip";
 import { Button } from "../src/Button";
-import { Tooltip } from "../src/Tooltip";
+import { Tooltip, type TooltipProps } from "../src/Tooltip";
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,
@@ -14,7 +14,7 @@ const meta: Meta<typeof Tooltip> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: TooltipProps) => (
   <div className="flex gap-2">
     <TooltipTrigger>
       <Button variant="secondary" className="px-2">

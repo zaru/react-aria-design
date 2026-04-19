@@ -34,7 +34,9 @@ export function Tooltip({ children, ...props }: TooltipProps) {
       )}
     >
       <OverlayArrow>
+        {/* biome-ignore lint/a11y/noSvgWithoutTitle: 矢印は装飾（ツールチップ本文で意味が伝わる） */}
         <svg
+          aria-hidden
           width={8}
           height={8}
           viewBox="0 0 8 8"

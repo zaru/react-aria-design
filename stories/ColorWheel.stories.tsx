@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { ColorWheel } from "../src/ColorWheel";
+import { ColorWheel, type ColorWheelProps } from "../src/ColorWheel";
 
 const meta: Meta<typeof ColorWheel> = {
   component: ColorWheel,
@@ -11,4 +11,4 @@ const meta: Meta<typeof ColorWheel> = {
 
 export default meta;
 
-export const Example = (args: any) => <ColorWheel {...args} />;
+export const Example = (args: ColorWheelProps) => <ColorWheel {...args} />;

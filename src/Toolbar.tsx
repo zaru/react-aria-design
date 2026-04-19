@@ -32,3 +32,5 @@ export function Toolbar(props: ToolbarProps) {
     </ToggleButtonGroupContext.Provider>
   );
 }
+
+export type { ToolbarProps };

@@ -1,7 +1,8 @@
 import type { Meta } from "@storybook/react-vite";
+import type { DateValue } from "react-aria-components/DateField";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { DateField } from "../src/DateField";
+import { DateField, type DateFieldProps } from "../src/DateField";
 
 const meta: Meta<typeof DateField> = {
   component: DateField,
@@ -16,9 +17,11 @@ const meta: Meta<typeof DateField> = {
 
 export default meta;
 
-export const Example = (args: any) => <DateField {...args} />;
+export const Example = (args: DateFieldProps<DateValue>) => (
+  <DateField {...args} />
+);
 
-export const Validation = (args: any) => (
+export const Validation = (args: DateFieldProps<DateValue>) => (
   <Form className="flex flex-col gap-2 items-start">
     <DateField {...args} />
     <Button type="submit" variant="secondary">

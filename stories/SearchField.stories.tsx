@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { SearchField } from "../src/SearchField";
+import { SearchField, type SearchFieldProps } from "../src/SearchField";
 
 const meta: Meta<typeof SearchField> = {
   component: SearchField,
@@ -17,9 +17,9 @@ const meta: Meta<typeof SearchField> = {
 
 export default meta;
 
-export const Example = (args: any) => <SearchField {...args} />;
+export const Example = (args: SearchFieldProps) => <SearchField {...args} />;
 
-export const Validation = (args: any) => (
+export const Validation = (args: SearchFieldProps) => (
   <Form className="flex flex-col gap-2 items-start">
     <SearchField {...args} />
     <Button type="submit" variant="secondary">

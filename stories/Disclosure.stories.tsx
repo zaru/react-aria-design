@@ -3,6 +3,7 @@ import {
   Disclosure,
   DisclosureHeader,
   DisclosurePanel,
+  type DisclosureProps,
 } from "../src/Disclosure";
 
 const meta: Meta<typeof Disclosure> = {
@@ -15,7 +16,7 @@ const meta: Meta<typeof Disclosure> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: DisclosureProps) => (
   <Disclosure {...args}>
     <DisclosureHeader>Files</DisclosureHeader>
     <DisclosurePanel>Files content</DisclosurePanel>

@@ -1,4 +1,5 @@
 "use client";
+
 import type { HTMLAttributes } from "react";
 import { composeRenderProps } from "react-aria-components/composeRenderProps";
 import {
@@ -96,3 +97,5 @@ export function GridListHeader({
     </AriaGridListHeader>
   );
 }
+
+export type { GridListProps } from "react-aria-components/GridList";

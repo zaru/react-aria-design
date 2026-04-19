@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { Slider } from "../src/Slider";
+import { Slider, type SliderProps } from "../src/Slider";
 
 const meta: Meta<typeof Slider> = {
   component: Slider,
@@ -11,7 +11,7 @@ const meta: Meta<typeof Slider> = {
 
 export default meta;
 
-export const Example = (args: any) => <Slider {...args} />;
+export const Example = (args: SliderProps<number[]>) => <Slider {...args} />;
 
 Example.args = {
   label: "Range",

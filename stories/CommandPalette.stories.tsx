@@ -1,7 +1,10 @@
 import type { Meta } from "@storybook/react-vite";
 import { DialogTrigger } from "react-aria-components/Dialog";
 import { Button } from "../src/Button";
-import { CommandPalette } from "../src/CommandPalette";
+import {
+  CommandPalette,
+  type CommandPaletteProps,
+} from "../src/CommandPalette";
 import { MenuItem, MenuSection } from "../src/Menu";
 
 const meta: Meta<typeof CommandPalette> = {
@@ -14,7 +17,7 @@ const meta: Meta<typeof CommandPalette> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: CommandPaletteProps<object>) => (
   <DialogTrigger>
     <Button>
       Open Command Palette{" "}
@@ -32,12 +35,14 @@ export const Example = (args: any) => (
   </DialogTrigger>
 );
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: CommandPaletteProps<object>) => (
+  <Example {...args} />
+);
 DisabledItems.args = {
   disabledKeys: ["mint"],
 };
 
-export const Sections = (args: any) => (
+export const Sections = (args: CommandPaletteProps<object>) => (
   <DialogTrigger>
     <Button>
       Open Command Palette{" "}

@@ -1,7 +1,10 @@
 import type { Meta } from "@storybook/react-vite";
 import { Bold, Italic, Underline } from "lucide-react";
 import { ToggleButton } from "../src/ToggleButton";
-import { ToggleButtonGroup } from "../src/ToggleButtonGroup";
+import {
+  ToggleButtonGroup,
+  type ToggleButtonGroupProps,
+} from "../src/ToggleButtonGroup";
 
 const meta: Meta<typeof ToggleButtonGroup> = {
   component: ToggleButtonGroup,
@@ -13,7 +16,7 @@ const meta: Meta<typeof ToggleButtonGroup> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: ToggleButtonGroupProps) => (
   <ToggleButtonGroup {...args}>
     <ToggleButton id="bold" aria-label="Bold">
       <Bold className="w-4 h-4" />

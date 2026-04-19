@@ -1,6 +1,11 @@
 import type { Meta } from "@storybook/react-vite";
 import { GridListSection } from "react-aria-components/GridList";
-import { GridList, GridListHeader, GridListItem } from "../src/GridList";
+import {
+  GridList,
+  GridListHeader,
+  GridListItem,
+  type GridListProps,
+} from "../src/GridList";
 
 const meta: Meta<typeof GridList> = {
   component: GridList,
@@ -20,7 +25,7 @@ const meta: Meta<typeof GridList> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: GridListProps<object>) => (
   <GridList aria-label="Ice cream flavors" {...args}>
     <GridListItem id="chocolate">Chocolate</GridListItem>
     <GridListItem id="mint">Mint</GridListItem>
@@ -35,7 +40,7 @@ Example.args = {
   keyboardNavigationBehavior: "arrow",
 };
 
-export const Horizontal = (args: any) => (
+export const Horizontal = (args: GridListProps<object>) => (
   <GridList aria-label="Ice cream flavors" orientation="horizontal" {...args}>
     <GridListItem id="chocolate">Chocolate</GridListItem>
     <GridListItem id="mint">Mint</GridListItem>
@@ -48,13 +53,15 @@ Horizontal.args = {
   ...Example.args,
 };
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: GridListProps<object>) => (
+  <Example {...args} />
+);
 DisabledItems.args = {
   ...Example.args,
   disabledKeys: ["mint"],
 };
 
-export const Sections = (args: any) => (
+export const Sections = (args: GridListProps<object>) => (
   <GridList aria-label="Food" {...args}>
     <GridListSection>
       <GridListHeader>Fruits</GridListHeader>

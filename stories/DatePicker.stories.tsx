@@ -1,7 +1,8 @@
 import type { Meta } from "@storybook/react-vite";
+import type { DateValue } from "react-aria-components/DatePicker";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { DatePicker } from "../src/DatePicker";
+import { DatePicker, type DatePickerProps } from "../src/DatePicker";
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
@@ -16,9 +17,11 @@ const meta: Meta<typeof DatePicker> = {
 
 export default meta;
 
-export const Example = (args: any) => <DatePicker {...args} />;
+export const Example = (args: DatePickerProps<DateValue>) => (
+  <DatePicker {...args} />
+);
 
-export const Validation = (args: any) => (
+export const Validation = (args: DatePickerProps<DateValue>) => (
   <Form className="flex flex-col gap-2 items-start">
     <DatePicker {...args} />
     <Button type="submit" variant="secondary">

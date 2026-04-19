@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react-vite";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { NumberField } from "../src/NumberField";
+import { NumberField, type NumberFieldProps } from "../src/NumberField";
 
 const meta: Meta<typeof NumberField> = {
   component: NumberField,
@@ -17,9 +17,9 @@ const meta: Meta<typeof NumberField> = {
 
 export default meta;
 
-export const Example = (args: any) => <NumberField {...args} />;
+export const Example = (args: NumberFieldProps) => <NumberField {...args} />;
 
-export const Validation = (args: any) => (
+export const Validation = (args: NumberFieldProps) => (
   <Form className="flex flex-col gap-2 items-start">
     <NumberField {...args} />
     <Button type="submit" variant="secondary">

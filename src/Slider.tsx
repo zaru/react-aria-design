@@ -1,4 +1,5 @@
 "use client";
+import type { CSSProperties } from "react";
 import {
   Slider as AriaSlider,
   type SliderProps as AriaSliderProps,
@@ -9,6 +10,11 @@ import {
 import { tv } from "tailwind-variants";
 import { Label } from "./Field";
 import { composeTailwindRenderProps, focusRing } from "./utils";
+
+type SliderTrackCssVars = CSSProperties & {
+  "--size"?: string;
+  "--start"?: string;
+};
 
 const trackStyles = tv({
   base: "rounded-full",
@@ -86,7 +92,9 @@ export function Slider<T extends number | number[]>({
               <div
                 className={fillStyles(renderProps)}
                 style={
-                  { "--size": `${state.getThumbPercent(0) * 100}%` } as any
+                  {
+                    "--size": `${state.getThumbPercent(0) * 100}%`,
+                  } as SliderTrackCssVars
                 }
               />
             ) : state.values.length === 2 ? (
@@ -100,12 +108,13 @@ export function Slider<T extends number | number[]>({
                       (state.getThumbPercent(1) - state.getThumbPercent(0)) *
                         100 +
                       "%",
-                  } as any
+                  } as SliderTrackCssVars
                 }
               />
             ) : null}
             {state.values.map((_, i) => (
               <SliderThumb
+                // biome-ignore lint/suspicious/noArrayIndexKey: スライダーの親指は順序固定で並び替えない
                 key={i}
                 index={i}
                 aria-label={thumbLabels?.[i]}

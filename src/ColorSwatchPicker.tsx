@@ -10,6 +10,8 @@ import { tv } from "tailwind-variants";
 import { ColorSwatch } from "./ColorSwatch";
 import { focusRing } from "./utils";
 
+export type ColorSwatchPickerRootProps = Omit<ColorSwatchPickerProps, "layout">;
+
 const pickerStyles = tv({
   base: "flex gap-1",
   variants: {
@@ -23,7 +25,7 @@ const pickerStyles = tv({
 export function ColorSwatchPicker({
   children,
   ...props
-}: Omit<ColorSwatchPickerProps, "layout">) {
+}: ColorSwatchPickerRootProps) {
   return (
     <AriaColorSwatchPicker
       {...props}

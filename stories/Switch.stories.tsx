@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { Switch } from "../src/Switch";
+import { Switch, type SwitchProps } from "../src/Switch";
 
 const meta: Meta<typeof Switch> = {
   component: Switch,
@@ -11,4 +11,4 @@ const meta: Meta<typeof Switch> = {
 
 export default meta;
 
-export const Example = (args: any) => <Switch {...args}>Wi-Fi</Switch>;
+export const Example = (args: SwitchProps) => <Switch {...args}>Wi-Fi</Switch>;

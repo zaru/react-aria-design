@@ -1,7 +1,12 @@
 import type { Meta } from "@storybook/react-vite";
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { Select, SelectItem, SelectSection } from "../src/Select";
+import {
+  Select,
+  SelectItem,
+  type SelectProps,
+  SelectSection,
+} from "../src/Select";
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -16,7 +21,7 @@ const meta: Meta<typeof Select> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: SelectProps<object, "single">) => (
   <Select {...args}>
     <SelectItem>Chocolate</SelectItem>
     <SelectItem id="mint">Mint</SelectItem>
@@ -25,12 +30,14 @@ export const Example = (args: any) => (
   </Select>
 );
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: SelectProps<object, "single">) => (
+  <Example {...args} />
+);
 DisabledItems.args = {
   disabledKeys: ["mint"],
 };
 
-export const Sections = (args: any) => (
+export const Sections = (args: SelectProps<object, "single">) => (
   <Select {...args}>
     <SelectSection title="Fruit">
       <SelectItem id="Apple">Apple</SelectItem>
@@ -59,7 +66,7 @@ Sections.args = {
   label: "Preferred fruit or vegetable",
 };
 
-export const Validation = (args: any) => (
+export const Validation = (args: SelectProps<object, "single">) => (
   <Form className="flex flex-col gap-2 items-start">
     <Example {...args} />
     <Button type="submit" variant="secondary">

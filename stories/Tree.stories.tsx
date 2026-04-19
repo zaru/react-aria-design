@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react-vite";
-import { Tree, TreeItem } from "../src/Tree";
+import { Tree, TreeItem, type TreeProps } from "../src/Tree";
 
 const meta: Meta<typeof Tree> = {
   component: Tree,
@@ -11,7 +11,7 @@ const meta: Meta<typeof Tree> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: TreeProps<object>) => (
   <Tree
     aria-label="Files"
     style={{ height: "400px", width: "300px" }}
@@ -36,7 +36,7 @@ Example.args = {
   defaultSelectedKeys: ["project"],
 };
 
-export const DisabledItems = (args: any) => <Example {...args} />;
+export const DisabledItems = (args: TreeProps<object>) => <Example {...args} />;
 DisabledItems.args = {
   ...Example.args,
   disabledKeys: ["photos"],

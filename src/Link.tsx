@@ -7,7 +7,7 @@ import {
 import { tv } from "tailwind-variants";
 import { focusRing } from "./utils";
 
-interface LinkProps extends AriaLinkProps {
+export interface LinkProps extends AriaLinkProps {
   variant?: "primary" | "secondary";
 }
 

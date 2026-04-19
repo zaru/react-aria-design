@@ -1,6 +1,6 @@
 import { Form } from "react-aria-components/Form";
 import { Button } from "../src/Button";
-import { Radio, RadioGroup } from "../src/RadioGroup";
+import { Radio, RadioGroup, type RadioGroupProps } from "../src/RadioGroup";
 
 export default {
   title: "RadioGroup",
@@ -29,7 +29,7 @@ export const Default = {
   args: {},
 };
 
-export const Validation = (args: any) => (
+export const Validation = (args: RadioGroupProps) => (
   <Form className="flex flex-col gap-2 items-start">
     <RadioGroup {...args} />
     <Button type="submit" variant="secondary">

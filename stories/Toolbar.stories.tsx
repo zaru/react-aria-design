@@ -5,7 +5,7 @@ import { Button } from "../src/Button";
 import { Checkbox } from "../src/Checkbox";
 import { Separator } from "../src/Separator";
 import { ToggleButton } from "../src/ToggleButton";
-import { Toolbar } from "../src/Toolbar";
+import { Toolbar, type ToolbarProps } from "../src/Toolbar";
 
 const meta: Meta<typeof Toolbar> = {
   component: Toolbar,
@@ -17,7 +17,7 @@ const meta: Meta<typeof Toolbar> = {
 
 export default meta;
 
-export const Example = (args: any) => (
+export const Example = (args: ToolbarProps) => (
   <Toolbar aria-label="Text formatting" {...args}>
     <Group aria-label="Style" className="contents">
       <ToggleButton aria-label="Bold" className="p-2.5">
