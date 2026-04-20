@@ -40,7 +40,7 @@ export function MyToastRegion() {
     // The ToastRegion should be rendered at the root of your app.
     <ToastRegion
       queue={queue}
-      className="fixed bottom-4 right-4 flex flex-col-reverse gap-2 rounded-lg outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2"
+      className="fixed bottom-4 right-4 flex flex-col-reverse gap-2 rounded-2xl outline-none focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-glow-500 focus-visible:outline-offset-2"
     >
       {({ toast }) => (
         <MyToast toast={toast}>
@@ -74,7 +74,10 @@ export function MyToast(props: ToastProps<MyToastContent>) {
       style={{ viewTransitionName: props.toast.key } as CSSProperties}
       className={composeTailwindRenderProps(
         props.className,
-        "flex items-center gap-4 bg-blue-600 px-4 py-3 rounded-lg outline-none forced-colors:outline focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 [view-transition-class:toast] font-sans w-[230px]",
+        "flex items-center gap-4 px-4 py-3 rounded-2xl [corner-shape:squircle] outline-none forced-colors:outline focus-visible:outline-solid focus-visible:outline-2 focus-visible:outline-glow-500 focus-visible:outline-offset-2 [view-transition-class:toast] font-sans w-[240px] " +
+          "bg-linear-to-b from-glow-400/94 to-glow-500/96 ring-1 ring-white/22 " +
+          "shadow-[0_10px_28px_-8px_rgba(13,148,136,0.45),inset_0_1px_0_rgba(255,255,255,0.28),inset_0_-1px_0_rgba(0,0,0,0.12)] " +
+          "backdrop-blur-md backdrop-saturate-125",
       )}
     />
   );

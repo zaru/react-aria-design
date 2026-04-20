@@ -1,101 +1,106 @@
 /**
  * Glassmorphism 向けカラートークン（Tailwind v4 @theme）
- * — くすんだ寒色・ティールアクセント・薄いクリムゾン/ミントの意味色
+ * — Apple iOS システムカラーを OKLCH で再構成
+ *   glass = Apple Neutral Gray / glow = iOS Blue / roseglass = iOS Red
+ *   mint = iOS Green / coral = iOS Orange / aurora = iOS Purple
  */
 
 /* Tailwind v4: unused @theme vars are omitted from CSS — ColorPalette uses inline var(--color-*). */
 @theme static {
-  /* ── ニュートラル：曇りガラス / パネル用（ほんの少し青み） ── */
-  --color-glass-50: oklch(0.985 0.004 255);
-  --color-glass-100: oklch(0.962 0.009 255);
-  --color-glass-200: oklch(0.915 0.018 256);
-  --color-glass-300: oklch(0.858 0.026 257);
-  --color-glass-400: oklch(0.742 0.034 258);
-  --color-glass-500: oklch(0.624 0.038 259);
-  --color-glass-600: oklch(0.518 0.041 260);
-  --color-glass-700: oklch(0.428 0.042 261);
-  --color-glass-800: oklch(0.336 0.038 262);
-  --color-glass-900: oklch(0.246 0.036 263);
-  --color-glass-950: oklch(0.162 0.038 265);
+  /* ── ニュートラル：Apple 風ピュアグレー（ガラス面・テキスト階層の基盤） ── */
+  --color-glass-50: oklch(0.985 0.001 260);
+  --color-glass-100: oklch(0.965 0.002 260);
+  --color-glass-200: oklch(0.925 0.002 260);
+  --color-glass-300: oklch(0.86 0.003 260);
+  --color-glass-400: oklch(0.705 0.004 260);
+  --color-glass-500: oklch(0.54 0.006 260);
+  --color-glass-600: oklch(0.43 0.007 260);
+  --color-glass-700: oklch(0.325 0.008 260);
+  --color-glass-800: oklch(0.255 0.005 260);
+  --color-glass-900: oklch(0.185 0.004 260);
+  --color-glass-950: oklch(0.105 0.003 260);
 
-  /* ── シアン寄りのニュートラル：重ねるガラス層用 ── */
-  --color-frost-50: oklch(0.983 0.008 245);
-  --color-frost-100: oklch(0.958 0.016 245);
-  --color-frost-200: oklch(0.908 0.028 246);
-  --color-frost-300: oklch(0.848 0.038 247);
-  --color-frost-400: oklch(0.728 0.046 248);
-  --color-frost-500: oklch(0.598 0.052 249);
-  --color-frost-600: oklch(0.492 0.054 250);
-  --color-frost-700: oklch(0.402 0.052 251);
-  --color-frost-800: oklch(0.318 0.046 252);
-  --color-frost-900: oklch(0.238 0.042 253);
-  --color-frost-950: oklch(0.158 0.04 254);
+  /* ── シアン寄りのニュートラル：重ねるガラス層や奥行きの差に ── */
+  --color-frost-50: oklch(0.98 0.006 240);
+  --color-frost-100: oklch(0.955 0.012 240);
+  --color-frost-200: oklch(0.915 0.02 242);
+  --color-frost-300: oklch(0.85 0.028 244);
+  --color-frost-400: oklch(0.705 0.034 246);
+  --color-frost-500: oklch(0.555 0.04 248);
+  --color-frost-600: oklch(0.445 0.044 250);
+  --color-frost-700: oklch(0.345 0.04 252);
+  --color-frost-800: oklch(0.265 0.036 253);
+  --color-frost-900: oklch(0.19 0.032 255);
+  --color-frost-950: oklch(0.12 0.028 256);
 
-  /* ── アクセント：ティール / オーロラ（グラデ・CTA・光彩） ── */
-  --color-glow-50: oklch(0.97 0.02 196);
-  --color-glow-100: oklch(0.93 0.045 196);
-  --color-glow-200: oklch(0.85 0.085 196);
-  --color-glow-300: oklch(0.77 0.115 196);
-  --color-glow-400: oklch(0.69 0.135 196);
-  --color-glow-500: oklch(0.615 0.145 196);
-  --color-glow-600: oklch(0.535 0.138 196);
-  --color-glow-700: oklch(0.448 0.118 196);
-  --color-glow-800: oklch(0.368 0.098 196);
-  --color-glow-900: oklch(0.292 0.076 196);
-  --color-glow-950: oklch(0.218 0.056 196);
+  /* ── iOS Blue：CTA・リンク・フォーカスリングの主役（#007AFF） ── */
+  --color-glow-50: oklch(0.975 0.01 260);
+  --color-glow-100: oklch(0.945 0.035 260);
+  --color-glow-200: oklch(0.885 0.07 261);
+  --color-glow-300: oklch(0.81 0.12 261);
+  --color-glow-400: oklch(0.72 0.175 262);
+  --color-glow-500: oklch(0.604 0.224 262);
+  --color-glow-600: oklch(0.51 0.22 263);
+  --color-glow-700: oklch(0.42 0.18 264);
+  --color-glow-800: oklch(0.335 0.138 264);
+  --color-glow-900: oklch(0.26 0.1 265);
+  --color-glow-950: oklch(0.185 0.072 266);
 
-  --color-aurora-50: oklch(0.97 0.02 305);
-  --color-aurora-100: oklch(0.93 0.055 305);
-  --color-aurora-200: oklch(0.86 0.1 305);
-  --color-aurora-300: oklch(0.78 0.14 305);
-  --color-aurora-400: oklch(0.695 0.175 305);
-  --color-aurora-500: oklch(0.6 0.2 305);
-  --color-aurora-600: oklch(0.52 0.19 305);
-  --color-aurora-700: oklch(0.44 0.16 305);
-  --color-aurora-800: oklch(0.36 0.125 305);
-  --color-aurora-900: oklch(0.28 0.09 305);
-  --color-aurora-950: oklch(0.2 0.065 305);
+  /* ── iOS Purple：装飾・ブランド演出（#AF52DE） ── */
+  --color-aurora-50: oklch(0.975 0.014 305);
+  --color-aurora-100: oklch(0.945 0.042 306);
+  --color-aurora-200: oklch(0.885 0.09 307);
+  --color-aurora-300: oklch(0.81 0.145 308);
+  --color-aurora-400: oklch(0.705 0.21 309);
+  --color-aurora-500: oklch(0.587 0.243 309);
+  --color-aurora-600: oklch(0.495 0.22 310);
+  --color-aurora-700: oklch(0.405 0.18 310);
+  --color-aurora-800: oklch(0.32 0.14 311);
+  --color-aurora-900: oklch(0.245 0.1 311);
+  --color-aurora-950: oklch(0.175 0.075 312);
 
-  /* ── 意味色（ガラスUI向けに彩度を抑える） ── */
-  --color-mint-50: oklch(0.98 0.02 166);
-  --color-mint-100: oklch(0.94 0.045 166);
-  --color-mint-200: oklch(0.88 0.07 166);
-  --color-mint-300: oklch(0.82 0.095 166);
-  --color-mint-400: oklch(0.74 0.115 166);
-  --color-mint-500: oklch(0.665 0.125 166);
-  --color-mint-600: oklch(0.575 0.115 166);
-  --color-mint-700: oklch(0.485 0.098 166);
-  --color-mint-800: oklch(0.395 0.078 166);
-  --color-mint-900: oklch(0.305 0.058 166);
-  --color-mint-950: oklch(0.225 0.042 166);
+  /* ── iOS Green：成功・安全（#34C759） ── */
+  --color-mint-50: oklch(0.975 0.02 146);
+  --color-mint-100: oklch(0.94 0.05 146);
+  --color-mint-200: oklch(0.885 0.09 146);
+  --color-mint-300: oklch(0.82 0.13 146);
+  --color-mint-400: oklch(0.785 0.165 146);
+  --color-mint-500: oklch(0.754 0.194 147);
+  --color-mint-600: oklch(0.64 0.17 148);
+  --color-mint-700: oklch(0.52 0.14 148);
+  --color-mint-800: oklch(0.41 0.11 149);
+  --color-mint-900: oklch(0.31 0.08 149);
+  --color-mint-950: oklch(0.225 0.06 150);
 
-  --color-coral-50: oklch(0.98 0.02 55);
-  --color-coral-100: oklch(0.955 0.045 55);
-  --color-coral-200: oklch(0.905 0.075 55);
-  --color-coral-300: oklch(0.845 0.105 55);
-  --color-coral-400: oklch(0.775 0.125 55);
-  --color-coral-500: oklch(0.695 0.135 55);
-  --color-coral-600: oklch(0.595 0.125 55);
-  --color-coral-700: oklch(0.495 0.105 55);
-  --color-coral-800: oklch(0.4 0.085 55);
-  --color-coral-900: oklch(0.32 0.065 55);
-  --color-coral-950: oklch(0.24 0.048 55);
+  /* ── iOS Orange：注意・警告（#FF9500） ── */
+  --color-coral-50: oklch(0.98 0.02 65);
+  --color-coral-100: oklch(0.955 0.05 62);
+  --color-coral-200: oklch(0.92 0.09 60);
+  --color-coral-300: oklch(0.875 0.13 58);
+  --color-coral-400: oklch(0.82 0.155 56);
+  --color-coral-500: oklch(0.755 0.174 55);
+  --color-coral-600: oklch(0.64 0.16 52);
+  --color-coral-700: oklch(0.525 0.135 50);
+  --color-coral-800: oklch(0.415 0.108 48);
+  --color-coral-900: oklch(0.325 0.082 46);
+  --color-coral-950: oklch(0.235 0.06 44);
 
-  --color-roseglass-50: oklch(0.98 0.02 12);
-  --color-roseglass-100: oklch(0.945 0.045 12);
-  --color-roseglass-200: oklch(0.89 0.08 12);
-  --color-roseglass-300: oklch(0.815 0.11 12);
-  --color-roseglass-400: oklch(0.725 0.14 12);
-  --color-roseglass-500: oklch(0.625 0.165 12);
-  --color-roseglass-600: oklch(0.535 0.155 12);
-  --color-roseglass-700: oklch(0.45 0.13 12);
-  --color-roseglass-800: oklch(0.365 0.105 12);
-  --color-roseglass-900: oklch(0.29 0.08 12);
-  --color-roseglass-950: oklch(0.215 0.058 12);
+  /* ── iOS Red：危険・エラー（#FF3B30） ── */
+  --color-roseglass-50: oklch(0.975 0.015 22);
+  --color-roseglass-100: oklch(0.945 0.045 23);
+  --color-roseglass-200: oklch(0.895 0.09 24);
+  --color-roseglass-300: oklch(0.83 0.14 25);
+  --color-roseglass-400: oklch(0.745 0.2 25);
+  --color-roseglass-500: oklch(0.635 0.236 25);
+  --color-roseglass-600: oklch(0.54 0.22 25);
+  --color-roseglass-700: oklch(0.445 0.18 25);
+  --color-roseglass-800: oklch(0.355 0.14 25);
+  --color-roseglass-900: oklch(0.275 0.1 25);
+  --color-roseglass-950: oklch(0.2 0.075 25);
 
-  /* ── ガラス縁・ハイライト（境界や白フチの代替） ── */
-  --color-glass-edge: oklch(0.95 0.025 250);
-  --color-glass-rim: oklch(0.99 0.01 255);
-  --color-glass-depth: oklch(0.2 0.04 265);
-  --color-backdrop-mist: oklch(0.55 0.06 260);
+  /* ── ガラス縁・ハイライト（左上光源を表現する縁の光） ── */
+  --color-glass-edge: oklch(0.955 0.003 260);
+  --color-glass-rim: oklch(0.99 0.002 260);
+  --color-glass-depth: oklch(0.18 0.004 260);
+  --color-backdrop-mist: oklch(0.55 0.005 260);
 }

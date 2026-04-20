@@ -19,15 +19,19 @@ import { composeTailwindRenderProps, focusRing } from "./utils";
 
 const cellStyles = tv({
   extend: focusRing,
-  base: "w-[calc(100cqw/7)] aspect-square text-sm cursor-default rounded-full flex items-center justify-center forced-color-adjust-none [-webkit-tap-highlight-color:transparent]",
+  base: "w-[calc(100cqw/7)] aspect-square text-sm cursor-default rounded-full flex items-center justify-center forced-color-adjust-none [-webkit-tap-highlight-color:transparent] transition-[background-color,box-shadow,color] duration-150 ease-out",
   variants: {
     isSelected: {
       false:
-        "text-neutral-900 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 pressed:bg-neutral-300 dark:pressed:bg-neutral-600",
-      true: "bg-blue-600 invalid:bg-red-600 text-white forced-colors:bg-[Highlight] forced-colors:invalid:bg-[Mark] forced-colors:text-[HighlightText]",
+        "text-glass-900 dark:text-glass-100 hover:bg-white/55 pressed:bg-white/68 dark:hover:bg-glass-800/55 dark:pressed:bg-glass-800/68",
+      true:
+        "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] " +
+        "dark:from-glow-500/88 dark:to-glow-600/92 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] " +
+        "invalid:from-roseglass-400/92 invalid:to-roseglass-500/94 invalid:dark:from-roseglass-500/88 invalid:dark:to-roseglass-600/92 " +
+        "forced-colors:bg-[Highlight] forced-colors:invalid:bg-[Mark] forced-colors:text-[HighlightText]",
     },
     isDisabled: {
-      true: "text-neutral-300 dark:text-neutral-600 forced-colors:text-[GrayText]",
+      true: "text-glass-400 dark:text-glass-600 forced-colors:text-[GrayText]",
     },
   },
 });
@@ -77,7 +81,7 @@ export function CalendarHeader() {
           <ChevronLeft aria-hidden size={18} />
         )}
       </Button>
-      <Heading className="flex-1 font-sans font-semibold [font-variation-settings:normal] text-base text-center mx-2 my-0 text-neutral-900 dark:text-neutral-200" />
+      <Heading className="flex-1 font-sans font-semibold [font-variation-settings:normal] text-base text-center mx-2 my-0 text-glass-900 dark:text-glass-50" />
       <Button variant="quiet" slot="next">
         {direction === "rtl" ? (
           <ChevronLeft aria-hidden size={18} />
@@ -93,7 +97,7 @@ export function CalendarGridHeader() {
   return (
     <AriaCalendarGridHeader>
       {(day) => (
-        <CalendarHeaderCell className="text-xs text-neutral-500 font-semibold">
+        <CalendarHeaderCell className="text-xs text-glass-500 dark:text-glass-400 font-semibold">
           {day}
         </CalendarHeaderCell>
       )}

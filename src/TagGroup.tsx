@@ -18,12 +18,12 @@ import { Description, Label } from "./Field";
 import { fieldErrorStyles, focusRing, stack } from "./utils";
 
 const colors = {
-  gray: "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-300 dark:bg-neutral-900 dark:text-neutral-300 dark:border-neutral-600 dark:hover:border-neutral-500",
+  gray: "bg-white/55 text-glass-700 border-black/10 hover:border-black/18 dark:bg-glass-800/50 dark:text-glass-200 dark:border-white/12 dark:hover:border-white/22",
   green:
-    "bg-green-100 text-green-700 border-green-200 hover:border-green-300 dark:bg-green-300/20 dark:text-green-400 dark:border-green-300/10 dark:hover:border-green-300/20",
+    "bg-mint-100/70 text-mint-800 border-mint-400/30 hover:border-mint-500/50 dark:bg-mint-500/18 dark:text-mint-300 dark:border-mint-400/20 dark:hover:border-mint-400/35",
   yellow:
-    "bg-yellow-100 text-yellow-700 border-yellow-200 hover:border-yellow-300 dark:bg-yellow-300/20 dark:text-yellow-400 dark:border-yellow-300/10 dark:hover:border-yellow-300/20",
-  blue: "bg-blue-100 text-blue-700 border-blue-200 hover:border-blue-300 dark:bg-blue-400/20 dark:text-blue-300 dark:border-blue-400/10 dark:hover:border-blue-400/20",
+    "bg-coral-100/70 text-coral-800 border-coral-400/30 hover:border-coral-500/50 dark:bg-coral-500/18 dark:text-coral-300 dark:border-coral-400/20 dark:hover:border-coral-400/35",
+  blue: "bg-glow-100/70 text-glow-800 border-glow-400/30 hover:border-glow-500/50 dark:bg-glow-500/18 dark:text-glow-300 dark:border-glow-400/20 dark:hover:border-glow-400/35",
 };
 
 type Color = keyof typeof colors;
@@ -43,10 +43,10 @@ const tagStyles = tv({
       true: "pr-1",
     },
     isSelected: {
-      true: "bg-blue-600 text-white border-transparent forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-color-adjust-none",
+      true: "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] dark:from-glow-500/88 dark:to-glow-600/92 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] border-transparent forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-color-adjust-none",
     },
     isDisabled: {
-      true: "bg-neutral-100 dark:bg-transparent dark:border-white/20 text-neutral-300 dark:text-neutral-600 forced-colors:text-[GrayText]",
+      true: "bg-glass-100/60 dark:bg-transparent dark:border-white/15 text-glass-400 dark:text-glass-600 forced-colors:text-[GrayText]",
     },
   },
   compoundVariants: (Object.keys(colors) as Color[]).map((color) => ({

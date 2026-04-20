@@ -39,7 +39,9 @@ export function NumberField({
         "group flex flex-col gap-1 font-sans",
       )}
     >
-      <Label>{label}</Label>
+      {label && (
+        <Label className="text-glass-800 dark:text-glass-100">{label}</Label>
+      )}
       <FieldGroup>
         {(renderProps) => (
           <>
@@ -66,8 +68,14 @@ export function NumberField({
           </>
         )}
       </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
+      {description && (
+        <Description className="text-glass-600 dark:text-glass-400">
+          {description}
+        </Description>
+      )}
+      <FieldError className="text-roseglass-700 dark:text-roseglass-400 forced-colors:text-[Mark]">
+        {errorMessage}
+      </FieldError>
     </AriaNumberField>
   );
 }
@@ -76,7 +84,7 @@ function StepperButton(props: ButtonProps) {
   return (
     <Button
       {...props}
-      className="flex border-0 py-0 px-0.5 flex-1 box-border cursor-default text-neutral-500 bg-transparent pressed:bg-neutral-100 group-disabled:text-neutral-200 dark:text-neutral-400 dark:pressed:bg-neutral-800 dark:group-disabled:text-neutral-600 forced-colors:group-disabled:text-[GrayText] [-webkit-tap-highlight-color:transparent]"
+      className="flex border-0 py-0 px-1 flex-1 box-border cursor-default text-glass-500 bg-transparent hover:bg-black/5 pressed:bg-black/10 dark:text-glass-300 dark:hover:bg-white/10 dark:pressed:bg-white/15 group-disabled:text-glass-300 dark:group-disabled:text-glass-600 forced-colors:group-disabled:text-[GrayText] [-webkit-tap-highlight-color:transparent]"
     />
   );
 }

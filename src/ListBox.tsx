@@ -45,17 +45,18 @@ export const itemStyles = tv({
   extend: focusRing,
   base:
     "group relative flex items-center gap-8 cursor-default select-none py-2 px-3 " +
-    "rounded-xl [corner-shape:squircle] will-change-transform text-sm forced-color-adjust-none " +
+    "rounded-[1.375rem] [corner-shape:squircle] will-change-transform text-sm forced-color-adjust-none " +
     "transition-[background-color,box-shadow,color] duration-150 ease-out",
   variants: {
     isSelected: {
       false:
         "text-glass-800 dark:text-glass-100 hover:bg-white/55 pressed:bg-white/68 dark:hover:bg-glass-800/55 dark:pressed:bg-glass-800/68 -outline-offset-2",
       true:
-        "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 " +
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] " +
-        "dark:from-glow-500/88 dark:to-glow-600/92 " +
-        "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] " +
+        "text-white " +
+        "[background-image:linear-gradient(rgba(0,122,255,.9),rgba(0,122,255,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] " +
+        "[box-shadow:inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06)] " +
+        "dark:[background-image:linear-gradient(rgba(0,122,255,.82),rgba(0,122,255,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] " +
+        "dark:[box-shadow:inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05)] " +
         "forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] " +
         "[&:has(+[data-selected])]:rounded-b-none [&+[data-selected]]:rounded-t-none " +
         "-outline-offset-4 outline-white dark:outline-white forced-colors:outline-[HighlightText]",
@@ -85,7 +86,7 @@ export function ListBoxItem(props: ListBoxItemProps) {
 export const dropdownItemStyles = tv({
   base:
     "group flex items-center gap-4 cursor-default select-none py-2 pl-3 pr-3 selected:pr-1 " +
-    "rounded-xl [corner-shape:squircle] outline-0 text-sm forced-color-adjust-none no-underline " +
+    "rounded-[1.375rem] [corner-shape:squircle] outline-0 text-sm forced-color-adjust-none no-underline " +
     "[&[href]]:cursor-pointer [-webkit-tap-highlight-color:transparent] " +
     "transition-[background-color,color,box-shadow] duration-150 ease-out",
   variants: {
@@ -98,10 +99,11 @@ export const dropdownItemStyles = tv({
     },
     isFocused: {
       true:
-        "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 " +
-        "shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] " +
-        "dark:from-glow-500/88 dark:to-glow-600/92 " +
-        "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] " +
+        "text-white " +
+        "[background-image:linear-gradient(rgba(0,122,255,.9),rgba(0,122,255,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] " +
+        "[box-shadow:inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06)] " +
+        "dark:[background-image:linear-gradient(rgba(0,122,255,.82),rgba(0,122,255,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] " +
+        "dark:[box-shadow:inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05)] " +
         "forced-colors:bg-[Highlight] forced-colors:text-[HighlightText]",
     },
   },

@@ -11,9 +11,9 @@ export interface ButtonProps extends RACButtonProps {
   variant?: "primary" | "secondary" | "destructive" | "quiet";
 }
 
-/** Liquid Glass 向けフォーカス（ビブラントなティール系 glow と整合） */
+/** Liquid Glass フォーカスリング（iOS Blue glow 相当） */
 const liquidFocusRing = tv({
-  base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] outline-offset-2",
+  base: "outline outline-glow-500 dark:outline-glow-400 forced-colors:outline-[Highlight] outline-offset-2",
   variants: {
     isFocusVisible: {
       false: "outline-0",
@@ -22,22 +22,30 @@ const liquidFocusRing = tv({
   },
 });
 
+/**
+ * Apple Liquid Glass ボタン（左上光源モデル）
+ * - 2 層 background-image + `background-clip: padding-box, border-box` で
+ *   透明 border にガラスの縁光（135deg グラデ）を描く。
+ * - 内側シャドウは左上ハイライト（+x/+y 正方向）、
+ *   外側シャドウは右下に落とす（光源: 左上・上方）。
+ */
 const button = tv({
   extend: liquidFocusRing,
-  base: "relative isolate inline-flex items-center justify-center gap-2 h-9 box-border px-6 py-0 [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-8 [&:has(>svg:only-child)]:w-8 font-sans font-medium text-sm text-center transition-[transform,box-shadow,filter] duration-200 rounded-full cursor-default [-webkit-tap-highlight-color:transparent]",
+  base: "relative isolate inline-flex items-center justify-center gap-2 h-11 box-border px-7 py-0 [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-11 [&:has(>svg:only-child)]:w-11 font-sans font-medium text-sm leading-none tracking-[-0.01em] text-center rounded-full border border-transparent cursor-default [-webkit-tap-highlight-color:transparent] [background-origin:border-box] [background-clip:padding-box,border-box] transition-[transform,box-shadow,filter,background-color,background-image] duration-300 ease-[cubic-bezier(.4,0,.2,1)]",
   variants: {
     variant: {
       primary:
-        "text-white ring-1 ring-white/35 backdrop-blur-md backdrop-saturate-125 bg-linear-to-b from-glow-500 via-glow-500 to-glow-600 shadow-[0_12px_28px_-10px_rgba(13,148,136,0.42),inset_0_0_0_1px_rgba(255,255,255,0.22),inset_0_1px_0_rgba(255,255,255,0.18),inset_0_-1px_0_rgba(0,0,0,0.14)] hover:brightness-[1.02] hover:shadow-[0_14px_32px_-10px_rgba(13,148,136,0.48),inset_0_0_0_1px_rgba(255,255,255,0.3),inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(0,0,0,0.12)] pressed:brightness-[0.97] pressed:scale-[0.99] dark:ring-white/22 dark:bg-linear-to-b dark:from-glow-600 dark:via-glow-700 dark:to-glow-800 dark:shadow-[0_14px_36px_-12px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.15),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.38)] dark:hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.55),inset_0_0_0_1px_rgba(255,255,255,0.2),inset_0_1px_0_rgba(255,255,255,0.14),inset_0_-1px_0_rgba(0,0,0,0.34)]",
+        "text-white backdrop-blur-[20px] backdrop-saturate-200 [background-clip:border-box,border-box] [background-image:linear-gradient(rgba(0,122,255,.9),rgba(0,122,255,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] shadow-[inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06),3px_4px_12px_rgba(0,122,255,.25),6px_10px_20px_rgba(0,0,0,.1)] hover:brightness-[1.05] dark:[background-image:linear-gradient(rgba(0,122,255,.82),rgba(0,122,255,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05),3px_4px_14px_rgba(0,122,255,.45),6px_10px_22px_rgba(0,0,0,.4)]",
       secondary:
-        "text-glass-900 ring-1 ring-black/10 backdrop-blur-xl backdrop-saturate-125 bg-white/44 shadow-[0_10px_26px_-14px_rgba(15,23,42,0.14),inset_0_0_0_1px_rgba(255,255,255,0.55),inset_0_1px_0_rgba(255,255,255,0.45),inset_0_-1px_0_rgba(15,23,42,0.06)] hover:bg-white/54 hover:shadow-[0_12px_28px_-14px_rgba(15,23,42,0.16),inset_0_0_0_1px_rgba(255,255,255,0.68),inset_0_1px_0_rgba(255,255,255,0.52),inset_0_-1px_0_rgba(15,23,42,0.05)] pressed:bg-white/58 pressed:scale-[0.99] dark:text-glass-50 dark:ring-white/12 dark:bg-glass-800/52 dark:shadow-[0_14px_34px_-16px_rgba(0,0,0,0.48),inset_0_0_0_1px_rgba(255,255,255,0.13),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.35)] dark:hover:bg-glass-800/62 dark:hover:shadow-[0_16px_36px_-16px_rgba(0,0,0,0.52),inset_0_0_0_1px_rgba(255,255,255,0.18),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.32)] dark:pressed:bg-glass-800/68",
+        "text-glass-900 backdrop-blur-[20px] backdrop-saturate-[1.8] [background-image:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.55)),linear-gradient(135deg,rgba(255,255,255,.95)_0%,rgba(255,255,255,.4)_45%,rgba(255,255,255,.3)_55%,rgba(255,255,255,.75)_100%)] shadow-[inset_1px_1px_1px_rgba(255,255,255,.9),inset_-1px_-1px_2px_rgba(255,255,255,.5),inset_2px_2px_4px_rgba(255,255,255,.3),3px_4px_10px_rgba(0,0,0,.08),6px_10px_24px_rgba(0,0,0,.06)] hover:brightness-[1.04] dark:text-glass-50 dark:[background-image:linear-gradient(rgba(60,60,65,.6),rgba(60,60,65,.6)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.08)_45%,rgba(255,255,255,.05)_55%,rgba(255,255,255,.22)_100%)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.14),inset_2px_2px_4px_rgba(255,255,255,.1),3px_4px_12px_rgba(0,0,0,.4),6px_10px_26px_rgba(0,0,0,.28)]",
       destructive:
-        "text-white ring-1 ring-white/35 backdrop-blur-md backdrop-saturate-125 bg-linear-to-b from-roseglass-500 via-roseglass-500 to-roseglass-600 shadow-[0_12px_28px_-10px_rgba(190,24,93,0.38),inset_0_0_0_1px_rgba(255,255,255,0.2),inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(0,0,0,0.16)] hover:brightness-[1.02] hover:shadow-[0_14px_32px_-10px_rgba(190,24,93,0.44),inset_0_0_0_1px_rgba(255,255,255,0.28),inset_0_1px_0_rgba(255,255,255,0.2),inset_0_-1px_0_rgba(0,0,0,0.14)] pressed:brightness-[0.97] pressed:scale-[0.99] dark:ring-white/20 dark:shadow-[0_14px_36px_-12px_rgba(0,0,0,0.48),inset_0_0_0_1px_rgba(255,255,255,0.14),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.4)] dark:hover:shadow-[0_16px_40px_-12px_rgba(0,0,0,0.52),inset_0_0_0_1px_rgba(255,255,255,0.18),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.36)]",
+        "text-white backdrop-blur-[20px] backdrop-saturate-200 [background-clip:border-box,border-box] [background-image:linear-gradient(rgba(255,59,48,.9),rgba(255,59,48,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] shadow-[inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06),3px_4px_12px_rgba(255,59,48,.25),6px_10px_20px_rgba(0,0,0,.1)] hover:brightness-[1.05] dark:[background-image:linear-gradient(rgba(255,59,48,.82),rgba(255,59,48,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05),3px_4px_14px_rgba(255,59,48,.45),6px_10px_22px_rgba(0,0,0,.4)]",
       quiet:
-        "ring-1 ring-transparent bg-transparent text-glass-800 shadow-none backdrop-blur-none hover:bg-white/38 hover:ring-black/8 hover:shadow-[0_8px_22px_-12px_rgba(15,23,42,0.12),inset_0_0_0_1px_rgba(255,255,255,0.55),inset_0_1px_0_rgba(255,255,255,0.42)] hover:backdrop-blur-md pressed:bg-white/46 dark:text-glass-100 dark:hover:bg-glass-900/46 dark:hover:ring-white/10 dark:hover:shadow-[0_10px_26px_-14px_rgba(0,0,0,0.42),inset_0_0_0_1px_rgba(255,255,255,0.12),inset_0_1px_0_rgba(255,255,255,0.08)] dark:pressed:bg-glass-900/54",
+        "text-glass-900 bg-transparent shadow-none [background-image:none] hover:backdrop-blur-[20px] hover:backdrop-saturate-[1.8] hover:[background-image:linear-gradient(rgba(255,255,255,.4),rgba(255,255,255,.4)),linear-gradient(135deg,rgba(255,255,255,.9)_0%,rgba(255,255,255,.35)_45%,rgba(255,255,255,.25)_55%,rgba(255,255,255,.65)_100%)] hover:shadow-[inset_1px_1px_1px_rgba(255,255,255,.8),inset_-1px_-1px_2px_rgba(255,255,255,.4),3px_4px_10px_rgba(0,0,0,.06),6px_10px_18px_rgba(0,0,0,.05)] dark:text-glass-50 dark:hover:[background-image:linear-gradient(rgba(60,60,65,.5),rgba(60,60,65,.5)),linear-gradient(135deg,rgba(255,255,255,.25)_0%,rgba(255,255,255,.08)_45%,rgba(255,255,255,.05)_55%,rgba(255,255,255,.18)_100%)] dark:hover:shadow-[inset_1px_1px_1px_rgba(255,255,255,.25),inset_-1px_-1px_2px_rgba(255,255,255,.1),3px_4px_10px_rgba(0,0,0,.3),6px_10px_18px_rgba(0,0,0,.25)]",
     },
     isDisabled: {
-      true: "cursor-not-allowed ring-1 ring-black/5 bg-glass-200/85 text-glass-400 shadow-none backdrop-blur-md saturate-100 dark:ring-white/8 dark:bg-glass-900/78 dark:text-glass-600 forced-colors:text-[GrayText]",
+      false: "pressed:scale-[0.97]",
+      true: "cursor-not-allowed text-glass-400 bg-glass-200/70 [background-image:none] shadow-none backdrop-blur-md saturate-100 dark:text-glass-600 dark:bg-glass-800/55 forced-colors:text-[GrayText]",
     },
     isPending: {
       true: "text-transparent",
@@ -50,8 +58,7 @@ const button = tv({
     {
       variant: "quiet",
       isDisabled: true,
-      class:
-        "ring-transparent bg-transparent hover:ring-transparent hover:bg-transparent hover:shadow-none dark:hover:shadow-none",
+      class: "bg-transparent dark:bg-transparent shadow-none",
     },
   ],
 });
@@ -75,7 +82,7 @@ export function Button(props: ButtonProps) {
               {/* biome-ignore lint/a11y/noSvgWithoutTitle: ローディングスピナーは装飾であり親 span が aria-hidden */}
               <svg
                 aria-hidden
-                className="w-4 h-4 text-white animate-spin"
+                className="w-4 h-4 animate-spin"
                 viewBox="0 0 24 24"
                 stroke={
                   props.variant === "secondary" || props.variant === "quiet"

@@ -1,15 +1,15 @@
 "use client";
+import { TextArea as RACTextArea } from "react-aria-components/TextArea";
 import {
   TextField as AriaTextField,
   type TextFieldProps as AriaTextFieldProps,
   type ValidationResult,
 } from "react-aria-components/TextField";
 import { tv } from "tailwind-variants";
-import { Description, FieldError, Input, Label } from "./Field";
+import { Description, FieldError, Label } from "./Field";
 import { composeTailwindRenderProps } from "./utils";
 
-/** Liquid Glass：入力はインセットのアウトライン（フォームガイドラインに合わせてオフセットを抑える） */
-const liquidInputFocusRing = tv({
+const liquidAreaFocusRing = tv({
   base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] -outline-offset-1",
   variants: {
     isFocusVisible: {
@@ -19,10 +19,10 @@ const liquidInputFocusRing = tv({
   },
 });
 
-const inputStyles = tv({
-  extend: liquidInputFocusRing,
+const areaStyles = tv({
+  extend: liquidAreaFocusRing,
   base: [
-    "rounded-[1.125rem] min-h-10 w-full font-sans text-sm py-2 px-4 box-border transition-[box-shadow,background-color,filter] duration-300 [-webkit-tap-highlight-color:transparent]",
+    "rounded-[1.125rem] min-h-24 w-full font-sans text-sm py-2 px-4 box-border resize-y transition-[box-shadow,background-color,filter] duration-300 [-webkit-tap-highlight-color:transparent]",
     "border-0 ring-1 ring-black/10 text-glass-900 placeholder:text-glass-500 backdrop-blur-2xl backdrop-saturate-150",
     "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-1px_0_rgba(15,23,42,0.06),0_6px_20px_-12px_rgba(15,23,42,0.15)]",
     "bg-linear-to-b from-white/82 to-white/42",
@@ -55,19 +55,22 @@ const inputStyles = tv({
   ],
 });
 
-export interface TextFieldProps extends AriaTextFieldProps {
+export interface TextAreaProps extends AriaTextFieldProps {
   label?: string;
   description?: string;
   placeholder?: string;
+  rows?: number;
   errorMessage?: string | ((validation: ValidationResult) => string);
 }
 
-export function TextField({
+export function TextArea({
   label,
   description,
+  placeholder,
+  rows = 4,
   errorMessage,
   ...props
-}: TextFieldProps) {
+}: TextAreaProps) {
   return (
     <AriaTextField
       {...props}
@@ -79,7 +82,11 @@ export function TextField({
       {label && (
         <Label className="text-glass-800 dark:text-glass-100">{label}</Label>
       )}
-      <Input className={inputStyles} />
+      <RACTextArea
+        placeholder={placeholder}
+        rows={rows}
+        className={areaStyles}
+      />
       {description && (
         <Description className="text-glass-600 dark:text-glass-400">
           {description}

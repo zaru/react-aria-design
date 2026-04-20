@@ -21,7 +21,6 @@ import {
   fieldDescriptionStyles,
   fieldErrorStyles,
   fieldLabelStyles,
-  focusRing,
 } from "./utils";
 
 export function Label(props: LabelProps) {
@@ -56,7 +55,18 @@ export function FieldError(props: FieldErrorProps) {
 }
 
 const inputStyles = tv({
-  base: "px-3 py-0 min-h-9 flex-1 min-w-0 border-0 outline outline-0 bg-white dark:bg-neutral-900 font-sans text-sm text-neutral-800 dark:text-neutral-200 placeholder:text-neutral-600 dark:placeholder:text-neutral-400 disabled:text-neutral-200 dark:disabled:text-neutral-600 disabled:placeholder:text-neutral-200 dark:disabled:placeholder:text-neutral-600 [-webkit-tap-highlight-color:transparent]",
+  base: "px-3 py-2 flex-1 min-w-0 border-0 outline outline-0 bg-transparent font-sans text-sm text-glass-900 dark:text-glass-50 placeholder:text-glass-500 dark:placeholder:text-glass-400 disabled:text-glass-400 dark:disabled:text-glass-600 disabled:placeholder:text-glass-300 dark:disabled:placeholder:text-glass-600 [-webkit-tap-highlight-color:transparent]",
+});
+
+/** Liquid Glass：FieldGroup/Input 系のアウトライン（-inset でまとわせる） */
+const liquidFieldFocusRing = tv({
+  base: "outline outline-glow-600 dark:outline-glow-400 forced-colors:outline-[Highlight] -outline-offset-1",
+  variants: {
+    isFocusVisible: {
+      false: "outline-0",
+      true: "outline-2",
+    },
+  },
 });
 
 export const fieldBorderStyles = tv({
@@ -64,22 +74,53 @@ export const fieldBorderStyles = tv({
   variants: {
     isFocusWithin: {
       false:
-        "border-neutral-300 hover:border-neutral-400 dark:border-neutral-600 dark:hover:border-neutral-500 forced-colors:border-[ButtonBorder]",
-      true: "border-neutral-600 dark:border-neutral-300 forced-colors:border-[Highlight]",
+        "border-black/10 dark:border-white/14 forced-colors:border-[ButtonBorder]",
+      true: "border-glow-500/55 dark:border-glow-400/45 forced-colors:border-[Highlight]",
     },
     isInvalid: {
-      true: "border-red-600 dark:border-red-600 forced-colors:border-[Mark]",
+      true: "border-roseglass-500/75 dark:border-roseglass-400/65 forced-colors:border-[Mark]",
     },
     isDisabled: {
-      true: "border-neutral-200 dark:border-neutral-700 forced-colors:border-[GrayText]",
+      true: "border-glass-300/60 dark:border-glass-700/60 forced-colors:border-[GrayText]",
     },
   },
 });
 
 export const fieldGroupStyles = tv({
-  extend: focusRing,
-  base: "group flex items-center h-9 box-border bg-white dark:bg-neutral-900 forced-colors:bg-[Field] border rounded-lg overflow-hidden transition",
-  variants: fieldBorderStyles.variants,
+  extend: liquidFieldFocusRing,
+  base: [
+    "group flex items-center min-h-10 w-full box-border overflow-hidden",
+    "rounded-[1.125rem] transition-[box-shadow,background-color,filter] duration-300 [-webkit-tap-highlight-color:transparent]",
+    "border-0 ring-1 ring-black/10 backdrop-blur-2xl backdrop-saturate-150",
+    "shadow-[inset_0_1px_0_rgba(255,255,255,0.92),inset_0_-1px_0_rgba(15,23,42,0.06),0_6px_20px_-12px_rgba(15,23,42,0.15)]",
+    "bg-linear-to-b from-white/82 to-white/42",
+    "dark:ring-white/14",
+    "dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),inset_0_-1px_0_rgba(0,0,0,0.35),0_10px_28px_-14px_rgba(0,0,0,0.55)]",
+    "dark:bg-linear-to-b dark:from-glass-800/72 dark:to-glass-950/58",
+    "forced-colors:bg-[Field]",
+  ].join(" "),
+  variants: {
+    isFocusWithin: {
+      false: "",
+      true: "ring-2 ring-glow-500/55 shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_10px_28px_-10px_rgba(45,212,191,0.28)] dark:ring-glow-400/45 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_14px_36px_-12px_rgba(34,211,238,0.22)]",
+    },
+    isInvalid: {
+      false: "",
+      true: "ring-roseglass-500/75 bg-linear-to-b from-roseglass-50/55 to-white/38 dark:from-roseglass-950/42 dark:to-glass-950/52",
+    },
+    isDisabled: {
+      false: "",
+      true: "cursor-not-allowed ring-black/6 bg-glass-100/88 saturate-100 shadow-none backdrop-blur-md dark:ring-white/8 dark:bg-glass-900/72",
+    },
+  },
+  compoundVariants: [
+    {
+      isFocusWithin: true,
+      isInvalid: true,
+      class:
+        "ring-2 ring-roseglass-600/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_12px_32px_-12px_rgba(225,29,72,0.28)] dark:ring-roseglass-400/65 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.22),0_14px_36px_-12px_rgba(251,113,133,0.22)]",
+    },
+  ],
 });
 
 export function FieldGroup(props: GroupProps) {

@@ -6,6 +6,7 @@ import type { DialogProps } from "react-aria-components/Dialog";
 import { Heading } from "react-aria-components/Heading";
 import { Button } from "./Button";
 import { Dialog } from "./Dialog";
+import { FormActions } from "./FormActions";
 
 export interface AlertDialogProps extends Omit<DialogProps, "children"> {
   title: string;
@@ -47,7 +48,7 @@ export function AlertDialog({
           <p className="mt-3 text-neutral-500 dark:text-neutral-400">
             {children}
           </p>
-          <div className="mt-6 flex justify-end gap-2">
+          <FormActions className="mt-6">
             <Button variant="secondary" onPress={close}>
               {cancelLabel || "Cancel"}
             </Button>
@@ -58,7 +59,7 @@ export function AlertDialog({
             >
               {actionLabel}
             </Button>
-          </div>
+          </FormActions>
         </>
       )}
     </Dialog>

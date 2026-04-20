@@ -4,37 +4,40 @@ const SCALES = [
   {
     id: "glass",
     title: "Glass",
-    description: "主力のニュートラル。曇りガラスやテキスト階層のベースに。",
+    description:
+      "Apple 風ピュアグレー。曇りガラス面とテキスト階層の基盤。彩度をほぼゼロに落とした中立軸。",
   },
   {
     id: "frost",
     title: "Frost",
-    description: "シアン寄りのニュートラル。重ねるパネルや奥行きの差に。",
+    description:
+      "シアン寄りのニュートラル。重ねるガラスパネルや奥行きの差をつけたい場面に。",
   },
   {
     id: "glow",
     title: "Glow",
-    description: "ティール系アクセント。CTA・リンク・光彩の主役。",
+    description:
+      "iOS Blue アクセント（#007AFF）。CTA・リンク・フォーカスの主役。",
   },
   {
     id: "aurora",
     title: "Aurora",
-    description: "バイオレット系アクセント。背景グラデや装飾の差し色。",
+    description: "iOS Purple（#AF52DE）。ブランド演出や背景グラデの差し色に。",
   },
   {
     id: "mint",
     title: "Mint",
-    description: "成功・安全・ポジティブな状態。彩度を抑えたミント。",
+    description: "iOS Green（#34C759）。成功・完了・ポジティブな状態。",
   },
   {
     id: "coral",
     title: "Coral",
-    description: "注意・警告。オレンジ寄りで目立ちすぎないトーン。",
+    description: "iOS Orange（#FF9500）。注意・警告・控えめな強調。",
   },
   {
     id: "roseglass",
     title: "Roseglass",
-    description: "危険・エラー。赤の刺さりを和らげたローズ。",
+    description: "iOS Red（#FF3B30）。Destructive・エラー・削除アクション。",
   },
 ] as const;
 
