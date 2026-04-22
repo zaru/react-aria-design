@@ -10,7 +10,8 @@ import { Button } from "./Button";
  * - `onBack` を渡せば標準の戻るボタンが自動配置される（leading 未指定時）
  * - 下端に薄いガラスの境界線、`sticky` にしても馴染むように半透明背景
  */
-export interface TopBarProps extends ComponentPropsWithoutRef<"header"> {
+export interface TopBarProps
+  extends Omit<ComponentPropsWithoutRef<"header">, "title"> {
   leading?: ReactNode;
   trailing?: ReactNode;
   title?: ReactNode;

@@ -12,6 +12,9 @@ const meta = {
     backgrounds: { disable: true },
   },
   tags: ["autodocs"],
+  args: {
+    greeting: "",
+  },
 } satisfies Meta<typeof PageGreeting>;
 
 export default meta;

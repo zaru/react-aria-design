@@ -13,6 +13,10 @@ const meta = {
     backgrounds: { disable: true },
   },
   tags: ["autodocs"],
+  args: {
+    customer: "",
+    title: "",
+  },
 } satisfies Meta<typeof InquirySummaryCard>;
 
 export default meta;

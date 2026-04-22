@@ -13,6 +13,9 @@ const meta = {
     backgrounds: { disable: true },
   },
   tags: ["autodocs"],
+  args: {
+    name: "",
+  },
 } satisfies Meta<typeof AssigneeField>;
 
 export default meta;

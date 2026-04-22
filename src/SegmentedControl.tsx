@@ -1,11 +1,11 @@
 "use client";
-import type { Key } from "react";
 import {
   composeRenderProps,
   SelectionIndicator as RACSelectionIndicator,
   ToggleButton as RACToggleButton,
   ToggleButtonGroup as RACToggleButtonGroup,
   SharedElementTransition,
+  type Key,
   type ToggleButtonGroupProps,
   type ToggleButtonProps,
 } from "react-aria-components";
