@@ -46,6 +46,7 @@ export function Card({
       {...props}
       className={twMerge(card({ variant, padding }), className)}
       style={{
+        // @ts-ignore まだ型定義が未対応
         cornerShape: "squircle",
       }}
     >
