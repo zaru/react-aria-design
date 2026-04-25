@@ -43,7 +43,7 @@ const tagStyles = tv({
       true: "pr-1",
     },
     isSelected: {
-      true: "text-white bg-linear-to-b from-glow-400/92 to-glow-500/94 shadow-[inset_0_1px_0_rgba(255,255,255,0.26)] dark:from-glow-500/88 dark:to-glow-600/92 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.14)] border-transparent forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-color-adjust-none",
+      true: "text-white backdrop-blur-[20px] backdrop-saturate-200 [background-clip:border-box,border-box] [background-image:linear-gradient(rgba(0,122,255,.9),rgba(0,122,255,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] shadow-[inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06)] hover:brightness-[1.05] dark:[background-image:linear-gradient(rgba(0,122,255,.82),rgba(0,122,255,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05)] border-transparent forced-colors:bg-[Highlight] forced-colors:text-[HighlightText] forced-color-adjust-none",
     },
     isDisabled: {
       true: "bg-glass-100/60 dark:bg-transparent dark:border-white/15 text-glass-400 dark:text-glass-600 forced-colors:text-[GrayText]",

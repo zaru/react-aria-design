@@ -9,6 +9,8 @@ import { tv } from "tailwind-variants";
 export interface ButtonProps extends RACButtonProps {
   /** @default 'primary' */
   variant?: "primary" | "secondary" | "destructive" | "quiet";
+  /** @default 'md' */
+  size?: "sm" | "md" | "lg";
 }
 
 /** Liquid Glass フォーカスリング（iOS Blue glow 相当） */
@@ -31,8 +33,13 @@ const liquidFocusRing = tv({
  */
 const button = tv({
   extend: liquidFocusRing,
-  base: "relative isolate inline-flex items-center justify-center gap-2 h-11 box-border px-7 py-0 [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-11 [&:has(>svg:only-child)]:w-11 font-sans font-medium text-sm leading-none tracking-[-0.01em] text-center rounded-full border border-transparent cursor-default [-webkit-tap-highlight-color:transparent] [background-origin:border-box] [background-clip:padding-box,border-box] transition-[transform,box-shadow,filter,background-color,background-image] duration-300 ease-[cubic-bezier(.4,0,.2,1)]",
+  base: "relative isolate inline-flex items-center justify-center gap-2 box-border py-0 font-sans font-medium leading-none tracking-[-0.01em] text-center rounded-full border border-transparent cursor-default [-webkit-tap-highlight-color:transparent] [background-origin:border-box] [background-clip:padding-box,border-box] transition-[transform,box-shadow,filter,background-color,background-image] duration-300 ease-[cubic-bezier(.4,0,.2,1)]",
   variants: {
+    size: {
+      sm: "h-8 px-5 text-xs [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-8 [&:has(>svg:only-child)]:w-8",
+      md: "h-11 px-7 text-sm [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-11 [&:has(>svg:only-child)]:w-11",
+      lg: "h-14 px-9 text-base [&:has(>svg:only-child)]:px-0 [&:has(>svg:only-child)]:h-14 [&:has(>svg:only-child)]:w-14",
+    },
     variant: {
       primary:
         "text-white backdrop-blur-[20px] backdrop-saturate-200 [background-clip:border-box,border-box] [background-image:linear-gradient(rgba(0,122,255,.9),rgba(0,122,255,.9)),linear-gradient(135deg,rgba(255,255,255,.28)_0%,rgba(255,255,255,.05)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.14)_100%)] shadow-[inset_1px_1px_1px_rgba(255,255,255,.3),inset_-1px_-1px_2px_rgba(255,255,255,.1),inset_2px_2px_4px_rgba(255,255,255,.06),3px_4px_12px_rgba(0,122,255,.25),6px_10px_20px_rgba(0,0,0,.1)] hover:brightness-[1.05] dark:[background-image:linear-gradient(rgba(0,122,255,.82),rgba(0,122,255,.82)),linear-gradient(135deg,rgba(255,255,255,.18)_0%,rgba(255,255,255,.04)_45%,rgba(255,255,255,.02)_55%,rgba(255,255,255,.1)_100%)] dark:shadow-[inset_1px_1px_1px_rgba(255,255,255,.2),inset_-1px_-1px_2px_rgba(255,255,255,.08),inset_2px_2px_4px_rgba(255,255,255,.05),3px_4px_14px_rgba(0,122,255,.45),6px_10px_22px_rgba(0,0,0,.4)]",
@@ -53,6 +60,7 @@ const button = tv({
   },
   defaultVariants: {
     variant: "primary",
+    size: "md",
   },
   compoundVariants: [
     {
@@ -68,7 +76,12 @@ export function Button(props: ButtonProps) {
     <RACButton
       {...props}
       className={composeRenderProps(props.className, (className, renderProps) =>
-        button({ ...renderProps, variant: props.variant, className }),
+        button({
+          ...renderProps,
+          variant: props.variant,
+          size: props.size,
+          className,
+        }),
       )}
     >
       {composeRenderProps(props.children, (children, { isPending }) => (

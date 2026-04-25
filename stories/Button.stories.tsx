@@ -16,6 +16,10 @@ const meta = {
       control: "select",
       options: ["primary", "secondary", "destructive", "quiet"],
     },
+    size: {
+      control: "select",
+      options: ["sm", "md", "lg"],
+    },
   },
   args: {
     isDisabled: false,
@@ -41,4 +45,20 @@ export const Destructive: StoryObj<typeof meta> = {
   args: {
     variant: "destructive",
   },
+};
+
+export const Sizes: StoryObj<typeof meta> = {
+  render: (args) => (
+    <div className="flex items-center gap-3">
+      <Button {...args} size="sm">
+        Small
+      </Button>
+      <Button {...args} size="md">
+        Medium
+      </Button>
+      <Button {...args} size="lg">
+        Large
+      </Button>
+    </div>
+  ),
 };
